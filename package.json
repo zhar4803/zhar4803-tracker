@@ -14,5 +14,8 @@
     "tracker"
   ],
   "author": "zed",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
