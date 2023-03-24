@@ -1,0 +1,18 @@
+{
+  "name": "tracker",
+  "version": "1.0.0",
+  "description": "Web application for tracking.",
+  "main": "index.js",
+  "scripts": {
+    "test": "hello!"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/zhar4803/zhar4803-tracker"
+  },
+  "keywords": [
+    "tracker"
+  ],
+  "author": "zed",
+  "license": "ISC"
+}
