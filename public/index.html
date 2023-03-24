@@ -1,16 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Tracker!</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="" />
-  <link rel="icon" href="favicon.png">
-  <link href="styles.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
 <body>
-  <h1>Tracker!</h1>
-  <p>Tracker!</p>
+  <header><h1>Task Tracker</h1></header>
+  <form id="taskform">
+    
+<div class="form-row">
+  <label for="taskName">Name</label>
+  <input type="text" name="taskName" id="taskName" required="true" />
+</div>
+<div class="form-row">
+  <label for="taskType">Type</label>
+  <select name="taskType" id="taskType" required="true" >
+        <option value="">--Please choose an option--</option>
+    <option value="dog">Dog</option>
+    <option value="cat">Cat</option>
+    <option value="hamster">Hamster</option>
+    <option value="parrot">Parrot</option>
+    <option value="spider">Spider</option>
+    <option value="goldfish">Goldfish</option>
+  </select>
+</div>
+<div class="form-row">
+  <label for="taskRate">Rate</label>
+  <input type="text" name="taskRate" id="taskRate" required="true" />
+</div>
+<div class="form-row">
+  <label for="taskTime">Time</label>
+  <input type="text" name="taskTime" id="taskTime" required="true" />
+</div>
+  <div class="form-row">
+  <label for="taskClient">Client</label>
+  <input type="text" name="taskClient" id="taskClient" required="true" />
+</div>
+  <div class="form-row">
+  <label for="taskBillable">Billable?</label>
+  <input type="checkbox" name="taskBillable" id="taskBillable" required="false" />
+</div>
+<div class="form-row">
+  <input type="submit">
+</div>
+    
+  </form>
+
+  <h2>Tasks</h2>
+<ul id="tasklist">
+</ul>
+  
   <script src="script.js"></script>
+  </script>
 </body>
+
 </html>
