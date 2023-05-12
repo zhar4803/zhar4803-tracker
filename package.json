@@ -2,9 +2,11 @@
   "name": "tracker",
   "version": "1.0.0",
   "description": "Web application for tracking.",
-  "main": "index.js",
   "scripts": {
-    "test": "hello!"
+    "test": "hello!",
+    "prestart": "parcel build ./public/index.html",
+    "dev": "parcel serve ./public/index.html",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
