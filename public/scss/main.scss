@@ -2,6 +2,34 @@
 @import "color.scss";
 @import "layout.scss";
 
+.container {
+  display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-template-columns: 1fr 1320px 1fr; 
+  grid-template-rows: 224px 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". Maincontent ."
+    ". Maincontent ."; 
+  justify-content: center;
+  background-color: black;
+  overflow: auto;
+  min-height: 1080px; 
+}
+.Maincontent {
+  display: grid; 
+  grid-template-columns: 1fr; 
+  grid-template-rows: 224px 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "Navbar"
+    "Filmlog"; 
+  grid-area: Maincontent; 
+  background-color: white;
+}
+.Navbar { grid-area: Navbar; }
+.Filmlog { grid-area: Filmlog; }
+
 html {
     height: 100%;
     width: 100%;
@@ -17,6 +45,7 @@ html {
     margin: 0 auto;
     border: 2px solid grey;
     padding: 2em 1em;
+    display: none;
        }
        
        .form-row {

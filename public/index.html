@@ -9,94 +9,99 @@
 </head>
 
 <body>
-  <header><h1>VIDEOTOME</h1></header>
-
-  <form id="taskform">
-    
-    <div class="form-row">
-      <label for="taskName">Title</label>
-      <input type="text" name="taskName" id="taskName" required="true" />
-    </div>
-
-    <div class="form-row">
-      <label for="taskType">Type</label>
-      <select name="taskType" id="taskType" required="true" >
-            <option value="">- Type -</option>
-              <option value="dog">Dog</option>
-              <option value="cat">Cat</option>
-              <option value="hamster">Hamster</option>
-              <option value="parrot">Parrot</option>
-              <option value="spider">Spider</option>
-              <option value="goldfish">Goldfish</option>
-      </select>
-
-      <select name="taskType" id="taskType" required="false" >
-            <option value="">- Type -</option>
-              <option value="dog">Dog</option>
-              <option value="cat">Cat</option>
-              <option value="hamster">Hamster</option>
-              <option value="parrot">Parrot</option>
-              <option value="spider">Spider</option>
-              <option value="goldfish">Goldfish</option>
-      </select>
-
-    </div>
-
-      <div class ="form-row">
-        <label for="taskType">Release Date</label>
-        <select name="taskType" id="taskType" required="false" >
-          <option value="">- Year -</option>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option>
-    </select> 
+  <div class="container">
+    <div class="Maincontent">
+      <div class ="Navbar">
+        <header><h1>VIDEOTOME</h1></header>
       </div>
-      <div class="form-row">
-        <label for="taskRate">Director</label>
-        <input type="text" name="taskRate" id="taskRate" required="false" />
-      </div>
-      <div class="form-row">
-        <label for="taskTime">Cast</label>
-        <input type="text" name="taskTime" id="taskTime" required="false" />
-      </div>
-        <div class="form-row">
-        <label for="taskClient">Original Title</label>
-        <input type="text" name="taskClient" id="taskClient" required="false" />
-      </div>
-      <div class="form-row">
-        <label for="filmRating">Rating:</label>
-        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = "0.5" />
-        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = "1" />
-        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = "1.5" />
-        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 4 />
-        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 5 />
-        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 6 />
-        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 7 />
-        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 8 />
-        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 9 />
-        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 10 />
-      </div>
-        <div class="form-row">
-        <label for="taskBillable">Add to Film Log</label>
-           <input type="checkbox" name="taskBillable" id="taskBillable" required="false" />
-           <label for="taskBillable">Add to Watchlist</label>
-           <input type="checkbox" name="taskBillable" id="taskBillable" required="false" />
-      </div>
-      <div class="form-row">
-        <input type="submit">
-      </div>
+      <form id="taskform">
         
-  </form>
+        <div class="form-row">
+          <label for="taskName">Title</label>
+          <input type="text" name="taskName" id="taskName" required/>
+        </div>
 
-  <h2>Tasks</h2>
-      <ul id="tasklist">
-      </ul>
-  
-  <script src="script.js"></script>
-  </script>
+        <div class="form-row">
+          <label for="taskType">Type</label>
+          <select name="taskType" id="taskType" required >
+                <option value="">- Type -</option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="hamster">Hamster</option>
+                  <option value="parrot">Parrot</option>
+                  <option value="spider">Spider</option>
+                  <option value="goldfish">Goldfish</option>
+          </select>
+
+          <select name="taskType" id="taskType" >
+                <option value="">- Type -</option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="hamster">Hamster</option>
+                  <option value="parrot">Parrot</option>
+                  <option value="spider">Spider</option>
+                  <option value="goldfish">Goldfish</option>
+          </select>
+
+        </div>
+
+          <div class ="form-row">
+            <label for="taskType">Release Date</label>
+            <select name="taskType" id="taskType" >
+              <option value="">- Year -</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="hamster">Hamster</option>
+                <option value="parrot">Parrot</option>
+                <option value="spider">Spider</option>
+                <option value="goldfish">Goldfish</option>
+        </select> 
+          </div>
+          <div class="form-row">
+            <label for="taskRate">Director</label>
+            <input type="text" name="taskRate" id="taskRate" />
+          </div>
+          <div class="form-row">
+            <label for="taskTime">Cast</label>
+            <input type="text" name="taskTime" id="taskTime" />
+          </div>
+            <div class="form-row">
+            <label for="taskClient">Original Title</label>
+            <input type="text" name="taskClient" id="taskClient" />
+          </div>
+          <div class="form-row">
+            <label for="filmRating">Rating:</label>
+            <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = "0.5" />
+            <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = "1" />
+            <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = "1.5" />
+            <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 4 />
+            <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 5 />
+            <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 6 />
+            <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 7 />
+            <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 8 />
+            <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 9 />
+            <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 10 />
+          </div>
+            <div class="form-row">
+            <label for="taskBillable">Add to Film Log</label>
+              <input type="radio" name="taskBillable" id="taskBillable" required="false" />
+              <label for="taskBillable">Add to Watchlist</label>
+              <input type="radio" name="taskBillable" id="taskBillable" required="false" />
+          </div>
+          <div class="form-row">
+            <input type="submit">
+          </div>
+            
+      </form>
+      <div class ="FilmLog">  
+        <h2>Tasks</h2>
+            <ul id="tasklist">
+            </ul>
+      </div>
+      <script src="script.js"></script>
+      </script>
+    </div>  
+  </div>
 </body>
 
 </html>
