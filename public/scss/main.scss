@@ -15,6 +15,11 @@
   background: linear-gradient(#333333, #080808);
   overflow: auto;
   min-height: 1080px; 
+  position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
 }
 .Maincontent {
   display: grid; 
