@@ -30,7 +30,7 @@
               <option value="goldfish">Goldfish</option>
       </select>
 
-      <select name="taskType" id="taskType" required="true" >
+      <select name="taskType" id="taskType" required="false" >
             <option value="">- Type -</option>
               <option value="dog">Dog</option>
               <option value="cat">Cat</option>
@@ -44,7 +44,7 @@
 
       <div class ="form-row">
         <label for="taskType">Release Date</label>
-        <select name="taskType" id="taskType" required="true" >
+        <select name="taskType" id="taskType" required="false" >
           <option value="">- Year -</option>
             <option value="dog">Dog</option>
             <option value="cat">Cat</option>
@@ -56,15 +56,28 @@
       </div>
       <div class="form-row">
         <label for="taskRate">Director</label>
-        <input type="text" name="taskRate" id="taskRate" required="true" />
+        <input type="text" name="taskRate" id="taskRate" required="false" />
       </div>
       <div class="form-row">
         <label for="taskTime">Cast</label>
-        <input type="text" name="taskTime" id="taskTime" required="true" />
+        <input type="text" name="taskTime" id="taskTime" required="false" />
       </div>
         <div class="form-row">
         <label for="taskClient">Original Title</label>
-        <input type="text" name="taskClient" id="taskClient" required="true" />
+        <input type="text" name="taskClient" id="taskClient" required="false" />
+      </div>
+      <div class="form-row">
+        <label for="filmRating">Rating:</label>
+        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = "0.5" />
+        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = "1" />
+        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = "1.5" />
+        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 4 />
+        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 5 />
+        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 6 />
+        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 7 />
+        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 8 />
+        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 9 />
+        <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 10 />
       </div>
         <div class="form-row">
         <label for="taskBillable">Add to Film Log</label>

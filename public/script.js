@@ -11,6 +11,7 @@ form.addEventListener("submit", function (event) {
         form.elements.taskRate.value,
         form.elements.taskTime.value,
         form.elements.taskClient.value,
+        form.elements.filmRating.value,
     )
 })
 
@@ -32,7 +33,8 @@ function displayTasks() {
         // Create task items for the DOM and add to the list
         let item = document.createElement("li");
         item.setAttribute("data-id", task.id);
-        item.innerHTML = `<p><strong>${task.name}</strong><br>${task.type}</p>`;
+        item.innerHTML = `<p><strong>${task.name}</strong><br>${task.type}<br>${task.filmRating}</p>`;
+        //make an if statement to select an appropriate image and then have it come up here
         tasklist.appendChild(item);
 
         // Clear the value of the input once the task has been added to the page
@@ -65,7 +67,7 @@ function displayTasks() {
 }
 
 // Function to add task to the list
-function addTask(name, type, rate, time, client) {
+function addTask(name, type, rate, time, client, filmRating) {
 
   
 
@@ -78,7 +80,8 @@ function addTask(name, type, rate, time, client) {
         date: new Date().toISOString(),
         rate,
         time,
-        client
+        client,
+        filmRating,
     }
 
     //first check localstorage to see if an item exists
