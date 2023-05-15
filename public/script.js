@@ -32,6 +32,7 @@ function displayTasks() {
       
         // Create task items for the DOM and add to the list
         let item = document.createElement("li");
+        item.className = "film";
         item.setAttribute("data-id", task.id);
         item.innerHTML = `<p><strong>${task.name}</strong><br>${task.type}<br>${task.filmRating}</p>`;
         //make an if statement to select an appropriate image and then have it come up here
@@ -119,5 +120,5 @@ function addTask(name, type, rate, time, client, filmRating) {
 
 
 // Call the function with test values for the input paramaters
-// addTask("Initial Sketches", "Concept Ideation", 50, 5, "Google");
+addTask("Initial Sketches", "Concept Ideation", 50, 5, "Google");
 displayTasks();

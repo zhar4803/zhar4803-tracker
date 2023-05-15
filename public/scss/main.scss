@@ -14,7 +14,7 @@
   justify-content: center;
   background: linear-gradient(#333333, #080808);
   overflow: auto;
-  min-height: 1080px; 
+  // min-height: 1080px; 
   position:absolute;
   top:0px;
   right:0px;
@@ -28,7 +28,7 @@
   gap: 0px 0px; 
   grid-template-areas: 
     "Navbar"
-    "Filmlog"; 
+    "FilmLog"; 
   grid-area: Maincontent; 
   background: #1A1A1A;
   box-shadow: 0px 5px 5px #141414;
@@ -39,11 +39,12 @@
   box-shadow: 0px 5px 10px #141414;
   background-position: 50% 25%;
   background-repeat: no-repeat;
+  z-index: 1;
  }
 
-.Filmlog { 
-  grid-area: Filmlog;
-  background: linear-gradient(#1A1A1A, #1b1b1b);
+.FilmLog { 
+  grid-area: FilmLog;
+  background: #1A1A1A;
   box-shadow: 0px 5px 10px #141414;
 }
 
@@ -51,6 +52,34 @@ html {
     height: 100%;
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
+    color: white;
+       }
+
+      //  .tasklist {
+      //   padding: 0px 0px 0px 0px;
+      //   margin:  0px 0px 0px 0px;
+      //   display: grid;
+      //   grid-template-columns: auto auto auto auto auto;
+      //   justify-content: center;
+      //  }
+
+       .film {
+        width: 210px;
+        height: 312px;
+        border: 1px solid white;
+        margin: 40px 18px 12px 18px;
+        text-align: center;
+        list-style-type: none; 
+        padding: 0;
+        list-style-position: outside;
+       }
+
+       ul {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        justify-content: center;
+        padding: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
        }
        
        header > h1 {
