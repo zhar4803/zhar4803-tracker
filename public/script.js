@@ -120,5 +120,7 @@ function addTask(name, type, rate, time, client, filmRating) {
 
 
 // Call the function with test values for the input paramaters
-addTask("Initial Sketches", "Concept Ideation", 50, 5, "Google");
+addTask("Alvin & the Chipmunks", "Concept Ideation", 50, 5, "Google");
+addTask("Alvin & the Chipmunks 2: The Squeekwel", "Concept Ideation", 50, 5, "Google");
+addTask("Alvin & the Chipmunks 3: Chipwrecked", "Concept Ideation", 50, 5, "Google");
 displayTasks();
