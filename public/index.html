@@ -13,8 +13,16 @@
     <div class="Maincontent">
       <div class ="Navbar">
         <!-- <header><h1>VIDEOTOME!</h1></header> -->
-        <img src ='../images/AddFilm.png'>
+        <!-- <button data-open-modal id='addFilmButton'> -->
+          <img src ='../images/AddFilm.png' class="addFilmButton" id="addFilmButton">
+          <!-- Add Film
+        </button> -->
       </div>
+      <dialog data-modal>
+        <span>Add film to database
+        <button id='closeFormButton'>X</button>
+        </span>
+        
       <form id="taskform">
         
         <div class="form-row">
@@ -94,6 +102,7 @@
           </div>
             
       </form>
+      </dialog>
       <div class ="FilmLog">  
         <!-- <h2>Tasks</h2> -->
             <ul id ="tasklist">

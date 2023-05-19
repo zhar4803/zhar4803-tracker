@@ -1,6 +1,42 @@
 // Setting up variables for our HTML elements using DOM selection
 const form = document.getElementById("taskform");
 const tasklist = document.getElementById("tasklist");
+//and the variable for the new modal thing that I'm trying out
+const modal = document.querySelector("[data-modal]");
+// const addFilm = document.querySelector("[data-open-modal]");
+const addFilm = document.getElementById("addFilmButton");
+const closeForm = document.getElementById("closeFormButton");
+
+// opening the add film dialogue on clicking the button
+
+addFilm.addEventListener("click", () => {
+  modal.showModal();
+
+})
+
+//closing the dialogue on clicking the appropriate button
+
+closeForm.addEventListener("click", () => {
+  modal.close();
+  document.getElementById("taskform").reset();
+
+})
+
+//also, closing the form if you click outside its bounds. Adapted from https://blog.webdevsimplified.com/2023-04/html-dialog/
+
+modal.addEventListener("click", e => {
+  const dialogDimensions = modal.getBoundingClientRect()
+  if (
+    e.clientX < dialogDimensions.left ||
+    e.clientX > dialogDimensions.right ||
+    e.clientY < dialogDimensions.top ||
+    e.clientY > dialogDimensions.bottom
+  ) {
+    modal.close()
+    document.getElementById("taskform").reset();
+  }
+})
+
 
 form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -13,6 +49,7 @@ form.addEventListener("submit", function (event) {
         form.elements.taskClient.value,
         form.elements.filmRating.value,
     )
+    modal.close();
 })
 
 function displayTasks() {
@@ -34,7 +71,7 @@ function displayTasks() {
         let item = document.createElement("li");
         item.className = "film";
         item.setAttribute("data-id", task.id);
-        item.innerHTML = `<p><strong>${task.name}</strong><br>${task.type}<br>${task.filmRating}</p>`;
+        item.innerHTML = `<p><strong>${task.name}</strong><br>${task.type}<br>${task.filmRating}<br><img src ='../images/iconaction.png'></p>`;
         //make an if statement to select an appropriate image and then have it come up here
         tasklist.appendChild(item);
 
@@ -120,7 +157,7 @@ function addTask(name, type, rate, time, client, filmRating) {
 
 
 // Call the function with test values for the input paramaters
-addTask("Alvin & the Chipmunks", "Concept Ideation", 50, 5, "Google");
+addTask("Alvin & the Chipmunks", "Concept Ideation", 50, 5, "Google", "1");
 addTask("Alvin & the Chipmunks 2: The Squeekwel", "Concept Ideation", 50, 5, "Google");
 addTask("Alvin & the Chipmunks 3: Chipwrecked", "Concept Ideation", 50, 5, "Google");
 displayTasks();
