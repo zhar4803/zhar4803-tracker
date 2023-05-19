@@ -71,12 +71,17 @@ function displayTasks() {
         let item = document.createElement("li");
         item.className = "film";
         item.setAttribute("data-id", task.id);
-        item.innerHTML = `<p><strong>${task.name}</strong><br>${task.type}<br>${task.filmRating}<br><img src ='../images/iconaction.png'></p>`;
+        item.innerHTML = `<p><strong>${task.name}</strong><br>${task.type}<br>${task.filmRating}</p>`;
         //make an if statement to select an appropriate image and then have it come up here
         tasklist.appendChild(item);
 
         // Clear the value of the input once the task has been added to the page
         form.reset();
+
+        var genreIcon = document.createElement("img");
+        //adding the placeholder genre 'sticker' icon - to do: if statement for determining if the icon is needed and the appropriate genre
+        genreIcon.src = 'images/iconaction.png';
+        item.appendChild(genreIcon);
 
         // Setup delete button DOM elements
         let delButton = document.createElement("button");
