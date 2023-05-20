@@ -80,7 +80,7 @@ function displayTasks() {
 
         var genreIcon = document.createElement("img");
         //adding the placeholder genre 'sticker' icon - to do: if statement for determining if the icon is needed and the appropriate genre
-        genreIcon.src = 'images/iconaction.png';
+        genreIcon.src = '../images/icondrama.png';
         item.appendChild(genreIcon);
 
         // Setup delete button DOM elements
