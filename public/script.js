@@ -103,7 +103,7 @@ function displayTasks() {
         item.className = "film";
         item.id = "film";
         item.setAttribute("data-id", task.id);
-        item.innerHTML = `<p><strong>${task.filmName}</strong><br><em>${task.filmRelease}</em><br>${task.filmGenre.join(", ")}</p>`;
+        item.innerHTML = `<p><strong>${task.filmName}</strong><br><em>${task.filmRelease}</em></p>`;
         //make an if statement to select an appropriate image and then have it come up here
         tasklist.appendChild(item);
 
@@ -210,55 +210,102 @@ function openfilmModal(taskId) {
     // Populate the modal with the attributes of the selected film
     const filmDetails = document.getElementById("filmDetails");
 
-    // Construct the HTML string based on the condition
-    let htmlString = `<p><strong>${selectedTask.filmName}</strong></p>`;
+    // Constructing a string which will then be fed into the innerhtml at the end
+    let entryContent = `<p><strong>${selectedTask.filmName}</strong></p>`;
 
     //each form element is checked with an if statement so it can be omitted if it wasn't submitted
-    //since there is always at least one genre submitted, we will instead check if the second string in the array was left blank and omit the comma
+    //since there is always at least one genre submitted, we will instead check if the second string in the array was left blank and omit the comma if it is
     
     if (selectedTask.filmGenre.length > 0) {
-      htmlString += `<p>Genre: ${selectedTask.filmGenre[0]}`;
+      entryContent += `<p>Genre: ${selectedTask.filmGenre[0]}`;
       
       if (selectedTask.filmGenre[1] !== "") {
-        htmlString += `, ${selectedTask.filmGenre[1]}`;
+        entryContent += `, ${selectedTask.filmGenre[1]}`;
       }
       
-      htmlString += `</p>`;
+      entryContent += `</p>`;
     }
     
     if (selectedTask.filmRelease) {
-      htmlString += `<p>Release Date: ${selectedTask.filmRelease}</p>`;
+      entryContent += `<p>Release Date: ${selectedTask.filmRelease}</p>`;
     }
     
     if (selectedTask.filmDirector) {
-      htmlString += `<p>Director: ${selectedTask.filmDirector}</p>`;
+      entryContent += `<p>Director: ${selectedTask.filmDirector}</p>`;
     }
     
     //since the filmCast is supposed to be an entry with three arrays, we will instead check if the filmCast array only has a blank string as an entry
     if (selectedTask.filmCast[0] !== "") {
       //slicing the 'cast' array to omit entries past the third, for cleanliness
       const cast = selectedTask.filmCast.slice(0, 3).join(", ");
-      htmlString += `<p>Cast: ${cast}</p>`;
+      entryContent += `<p>Cast: ${cast}</p>`;
     }
     
     if (selectedTask.filmOriginalTitle) {
-      htmlString += `<p>Original Title: ${selectedTask.filmOriginalTitle}</p>`;
+      entryContent += `<p>Original Title: ${selectedTask.filmOriginalTitle}</p>`;
     }
     
     if (selectedTask.filmRating) {
-      htmlString += `<p>Rating: ${selectedTask.filmRating}</p>`;
+      entryContent += `<p>Rating: ${selectedTask.filmRating}</p>`;
     }
 
-    filmDetails.innerHTML = htmlString;
+    filmDetails.innerHTML = entryContent;
+
+        //     // Setup delete button DOM elements
+        // let entryDelButton = document.createElement("button");
+        // let delButtonText = document.createTextNode("Delete");
+        // entryDelButton.appendChild(delButtonText);
+        // filmDetails.appendChild(delButton); // Adds a delete button to every task
+
+        // // Listen for when the delete button is clicked
+        // entryDelButton.addEventListener("click", function (event) { 
+
+        //     localTasks.forEach(function (taskArrayElement, taskArrayIndex) {
+        //         if (taskArrayElement.id == item.getAttribute('data-id')) {
+        //             localTasks.splice(taskArrayIndex, 1)
+        //         }
+        //     })
+
+        //     localStorage.setItem('tasks', JSON.stringify(localTasks));
+
+        //     item.remove(); // Remove the task item from the page when button clicked
+        //     // Because we used 'let' to define the item, 
+        //     // this will always delete the right element
+        // })
+
     filmModal.showModal();
   }
 }
 
 
 
+// function for randomly choosing a bunch of films and adding them for testing purposes
+function randomlyChooseTasks(numberOfTasks) {
+  const tasks = [
+    () => addTask("Alvin & the Chipmunks", "Action", "Drama", "Adolf Hitler", "(1939)", "Alvin", "Salo", "1"),
+    () => addTask("Alvin & the Chipmunks 2: The Squeekwel", "Action", "Crime", "Adolf Hitler", "(1500bc)", "Alvin", "Salo", "1"),
+    () => addTask("Alvin & the Chipmunks 3: Chipwrecked", "Action", "Adventure", "Adolf Hitler", "(40,000)", "Alvin", "Salo", "1"),
+    () => addTask("Alvin & the Chipmunks 4: Alvin Goes to Hell", "Action", "Adventure", "Adolf Hitler", "(40,000)", "Alvin", "Salo", "1"),
+    () => addTask("Alvin & the Chipmunks 5: The Revenge", "Action", "Adventure", "Adolf Hitler", "(40,000)", "Alvin", "Salo", "1"),
+    () => addTask("Alvin & the Chipmunks 6: The Final Alvin", "Action", "Adventure", "Adolf Hitler", "(40,000)", "Alvin", "Salo", "1"),
+    () => addTask("Alvin & the Chipmunks 7: A New Beginning", "Action", "Adventure", "Adolf Hitler", "(40,000)", "Alvin", "Salo", "1"),
+    () => addTask("Alvin & the Chipmunks 8: Alvin's Return", "Action", "Adventure", "Adolf Hitler", "(40,000)", "Alvin", "Salo", "1"),
+  ];
 
-// Call the function with test values for the input paramaters
-addTask("Alvin & the Chipmunks", "Action", "Drama", "Adolf Hitler", "(1939)", "Alvin", "Salo", "1");
-// addTask("Alvin & the Chipmunks 2: The Squeekwel", "Action", "Crime", "Adolf Hitler", "(1500bc)", "Alvin", "Salo", "1");
-// addTask("Alvin & the Chipmunks 3: Chipwrecked", "Action", "Adventure", "Adolf Hitler", "(40,000)", "Alvin", "Salo", "1");
+  // Shuffle the tasks array using the Fisher-Yates algorithm
+  for (let i = tasks.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [tasks[i], tasks[j]] = [tasks[j], tasks[i]];
+  }
+
+  // Call the specified number of randomly chosen tasks
+  for (let i = 0; i < numberOfTasks; i++) {
+    if (tasks[i]) {
+      tasks[i]();
+    }
+  }
+}
+
+// randomlyChooseTasks(5);
+
 displayTasks();
