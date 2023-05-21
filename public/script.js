@@ -213,7 +213,7 @@ function openfilmModal(taskId) {
     // Construct the HTML string based on the condition
     let htmlString = `<p><strong>${selectedTask.filmName}</strong></p>`;
 
-    //each form element is checked with an if statement so it can be omitted if it was left blank
+    //each form element is checked with an if statement so it can be omitted if it wasn't submitted
     //since there is always at least one genre submitted, we will instead check if the second string in the array was left blank and omit the comma
     
     if (selectedTask.filmGenre.length > 0) {
@@ -234,7 +234,8 @@ function openfilmModal(taskId) {
       htmlString += `<p>Director: ${selectedTask.filmDirector}</p>`;
     }
     
-    if (selectedTask.filmCast.length > 0) {
+    //since the filmCast is supposed to be an entry with three arrays, we will instead check if the filmCast array only has a blank string as an entry
+    if (selectedTask.filmCast[0] !== "") {
       //slicing the 'cast' array to omit entries past the third, for cleanliness
       const cast = selectedTask.filmCast.slice(0, 3).join(", ");
       htmlString += `<p>Cast: ${cast}</p>`;
