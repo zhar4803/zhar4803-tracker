@@ -1,13 +1,20 @@
 // Setting up variables for our HTML elements using DOM selection
 const form = document.getElementById("taskform");
 const tasklist = document.getElementById("tasklist");
-//and the variable for the new modal thing that I'm trying out
+//the variable for the add film modal
 const modal = document.querySelector("[data-modal]");
 // const addFilm = document.querySelector("[data-open-modal]");
 const addFilm = document.getElementById("addFilmButton");
 const closeForm = document.getElementById("closeFormButton");
+//the variable for the individual film modal!
+const filmModal = document.getElementById("filmModal");
+const closeEntry = document.getElementById("closeEntryButton");
+
+
+
 
 // opening the add film dialogue on clicking the button
+
 
 addFilm.addEventListener("click", () => {
   modal.showModal();
@@ -22,6 +29,7 @@ closeForm.addEventListener("click", () => {
 
 })
 
+
 //also, closing the form if you click outside its bounds. Adapted from https://blog.webdevsimplified.com/2023-04/html-dialog/
 
 modal.addEventListener("click", e => {
@@ -35,6 +43,13 @@ modal.addEventListener("click", e => {
     modal.close()
     document.getElementById("taskform").reset();
   }
+})
+
+//and closing individual database entries by clicking on their button
+
+closeEntry.addEventListener("click", () => {
+  filmModal.close();
+
 })
 
 
@@ -72,8 +87,9 @@ function displayTasks() {
         // Create task items for the DOM and add to the list
         let item = document.createElement("li");
         item.className = "film";
+        item.id = "film";
         item.setAttribute("data-id", task.id);
-        item.innerHTML = `<p><strong>${task.filmName}</strong><br><em>(${task.filmRelease})</em><br>${task.filmGenre}</p>`;
+        item.innerHTML = `<p><strong>${task.filmName}</strong><br><em>${task.filmRelease}</em><br>${task.filmGenre}</p>`;
         //make an if statement to select an appropriate image and then have it come up here
         tasklist.appendChild(item);
 
@@ -106,6 +122,12 @@ function displayTasks() {
             // Because we used 'let' to define the item, 
             // this will always delete the right element
         })
+
+        //adding a listener to open a separate modal with the item attributes on click. see function below
+        item.addEventListener("click", function () {
+          openModal(task.id);
+        });
+        //--------
 
       }) //closing bracket for for loop
     }//closing bracket for if statement
@@ -162,10 +184,32 @@ function addTask(filmName, filmGenre, filmGenre2, filmDirector, filmRelease, fil
 
 }
 
+function openModal(taskId) {
+  let localTasks = JSON.parse(localStorage.getItem('tasks'));
+  let selectedTask = localTasks.find(task => task.id === taskId);
+
+  if (selectedTask) {
+    // Populate the modal with the attributes of the selected film
+    const filmDetails = document.getElementById("filmDetails");
+    filmDetails.innerHTML = `
+      <p><strong>${selectedTask.filmName}</strong></p>
+      <p>Genre: ${selectedTask.filmGenre.join(", ")}</p>
+      <p>Release Date: ${selectedTask.filmRelease}</p>
+      <p>Director: ${selectedTask.filmDirector}</p>
+      <p>Cast: ${selectedTask.filmCast}</p>
+      <p>Original Title: ${selectedTask.filmOriginalTitle}</p>
+      <p>Rating: ${selectedTask.filmRating}</p>
+    `;
+
+    filmModal.showModal();
+  }
+}
+
+
 
 
 // Call the function with test values for the input paramaters
-addTask("Alvin & the Chipmunks", "Action", "Adolf Hitler", "1939", "Alvin", "1");
-addTask("Alvin & the Chipmunks 2: The Squeekwel", "Action", "Adolf Hitler", "1939", "Alvin", "1");
-addTask("Alvin & the Chipmunks 3: Chipwrecked", "Action", "Adolf Hitler", "1939", "Alvin", "1");
+addTask("Alvin & the Chipmunks", "Action", "Drama", "Adolf Hitler", "(1939)", "Alvin", "1");
+addTask("Alvin & the Chipmunks 2: The Squeekwel", "Action", "Crime", "Adolf Hitler", "(1500bc)", "Alvin", "1");
+addTask("Alvin & the Chipmunks 3: Chipwrecked", "Action", "Adventure", "Adolf Hitler", "(40,000)", "Alvin", "1");
 displayTasks();
