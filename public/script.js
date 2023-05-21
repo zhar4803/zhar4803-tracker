@@ -42,11 +42,13 @@ form.addEventListener("submit", function (event) {
     event.preventDefault();
 
     addTask(
-        form.elements.taskName.value,
-        form.elements.taskType.value,
-        form.elements.taskRate.value,
-        form.elements.taskTime.value,
-        form.elements.taskClient.value,
+        form.elements.filmName.value,
+        form.elements.filmGenre.value,
+        form.elements.filmGenre2.value,
+        form.elements.filmRelease.value,
+        form.elements.filmDirector.value,
+        form.elements.filmCast.value,
+        form.elements.filmOriginalTitle.value,
         form.elements.filmRating.value,
     )
     modal.close();
@@ -71,7 +73,7 @@ function displayTasks() {
         let item = document.createElement("li");
         item.className = "film";
         item.setAttribute("data-id", task.id);
-        item.innerHTML = `<p><strong>${task.name}</strong><br>${task.type}<br>${task.filmRating}</p>`;
+        item.innerHTML = `<p><strong>${task.filmName}</strong><br><em>(${task.filmRelease})</em><br>${task.filmGenre}</p>`;
         //make an if statement to select an appropriate image and then have it come up here
         tasklist.appendChild(item);
 
@@ -80,7 +82,7 @@ function displayTasks() {
 
         var genreIcon = document.createElement("img");
         //adding the placeholder genre 'sticker' icon - to do: if statement for determining if the icon is needed and the appropriate genre
-        genreIcon.src = '../images/icondrama.png';
+        genreIcon.src = '../images/iconaction.png';
         item.appendChild(genreIcon);
 
         // Setup delete button DOM elements
@@ -110,20 +112,21 @@ function displayTasks() {
 }
 
 // Function to add task to the list
-function addTask(name, type, rate, time, client, filmRating) {
+function addTask(filmName, filmGenre, filmGenre2, filmDirector, filmRelease, filmCast, filmOriginalTitle, filmRating) {
 
   
 
     // Creating the object, directly passing in the input parameters. 
     // This is kept the same from the first time its introduced in the tutorial.
     let task = {
-        name,
-        type,
+        filmName,
+        filmGenre: [filmGenre, filmGenre2],
         id: Date.now(),
         date: new Date().toISOString(),
-        rate,
-        time,
-        client,
+        filmRelease,
+        filmDirector,
+        filmCast,
+        filmOriginalTitle,
         filmRating,
     }
 
@@ -162,7 +165,7 @@ function addTask(name, type, rate, time, client, filmRating) {
 
 
 // Call the function with test values for the input paramaters
-addTask("Alvin & the Chipmunks", "Concept Ideation", 50, 5, "Google", "1");
-addTask("Alvin & the Chipmunks 2: The Squeekwel", "Concept Ideation", 50, 5, "Google");
-addTask("Alvin & the Chipmunks 3: Chipwrecked", "Concept Ideation", 50, 5, "Google");
+addTask("Alvin & the Chipmunks", "Action", "Adolf Hitler", "1939", "Alvin", "1");
+addTask("Alvin & the Chipmunks 2: The Squeekwel", "Action", "Adolf Hitler", "1939", "Alvin", "1");
+addTask("Alvin & the Chipmunks 3: Chipwrecked", "Action", "Adolf Hitler", "1939", "Alvin", "1");
 displayTasks();
