@@ -52,6 +52,20 @@ closeEntry.addEventListener("click", () => {
 
 })
 
+//or by clicking outsider of their bounds!
+
+filmModal.addEventListener("click", e => {
+  const dialogDimensions = filmModal.getBoundingClientRect()
+  if (
+    e.clientX < dialogDimensions.left ||
+    e.clientX > dialogDimensions.right ||
+    e.clientY < dialogDimensions.top ||
+    e.clientY > dialogDimensions.bottom
+  ) {
+    filmModal.close()
+    document.getElementById("taskform").reset();
+  }
+})
 
 form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -60,8 +74,8 @@ form.addEventListener("submit", function (event) {
         form.elements.filmName.value,
         form.elements.filmGenre.value,
         form.elements.filmGenre2.value,
-        form.elements.filmRelease.value,
         form.elements.filmDirector.value,
+        form.elements.filmRelease.value,
         form.elements.filmCast.value,
         form.elements.filmOriginalTitle.value,
         form.elements.filmRating.value,
@@ -89,7 +103,7 @@ function displayTasks() {
         item.className = "film";
         item.id = "film";
         item.setAttribute("data-id", task.id);
-        item.innerHTML = `<p><strong>${task.filmName}</strong><br><em>${task.filmRelease}</em><br>${task.filmGenre}</p>`;
+        item.innerHTML = `<p><strong>${task.filmName}</strong><br><em>${task.filmRelease}</em><br>${task.filmGenre.join(", ")}</p>`;
         //make an if statement to select an appropriate image and then have it come up here
         tasklist.appendChild(item);
 
@@ -125,7 +139,7 @@ function displayTasks() {
 
         //adding a listener to open a separate modal with the item attributes on click. see function below
         item.addEventListener("click", function () {
-          openModal(task.id);
+          openfilmModal(task.id);
         });
         //--------
 
@@ -134,7 +148,7 @@ function displayTasks() {
 }
 
 // Function to add task to the list
-function addTask(filmName, filmGenre, filmGenre2, filmDirector, filmRelease, filmCast, filmOriginalTitle, filmRating) {
+function addTask(filmName, filmGenre1, filmGenre2, filmDirector, filmRelease, filmCast, filmOriginalTitle, filmRating) {
 
   
 
@@ -142,12 +156,12 @@ function addTask(filmName, filmGenre, filmGenre2, filmDirector, filmRelease, fil
     // This is kept the same from the first time its introduced in the tutorial.
     let task = {
         filmName,
-        filmGenre: [filmGenre, filmGenre2],
+        filmGenre: [filmGenre1, filmGenre2],
         id: Date.now(),
         date: new Date().toISOString(),
         filmRelease,
         filmDirector,
-        filmCast,
+        filmCast: filmCast.split(","),
         filmOriginalTitle,
         filmRating,
     }
@@ -184,23 +198,57 @@ function addTask(filmName, filmGenre, filmGenre2, filmDirector, filmRelease, fil
 
 }
 
-function openModal(taskId) {
+//my function for filling out the film detail modal with details from each individual attribute on the form
+
+function openfilmModal(taskId) {
+  //opening the tasks from local storage
   let localTasks = JSON.parse(localStorage.getItem('tasks'));
+  //grabbing the correct task using the id attribute
   let selectedTask = localTasks.find(task => task.id === taskId);
 
   if (selectedTask) {
     // Populate the modal with the attributes of the selected film
     const filmDetails = document.getElementById("filmDetails");
-    filmDetails.innerHTML = `
-      <p><strong>${selectedTask.filmName}</strong></p>
-      <p>Genre: ${selectedTask.filmGenre.join(", ")}</p>
-      <p>Release Date: ${selectedTask.filmRelease}</p>
-      <p>Director: ${selectedTask.filmDirector}</p>
-      <p>Cast: ${selectedTask.filmCast}</p>
-      <p>Original Title: ${selectedTask.filmOriginalTitle}</p>
-      <p>Rating: ${selectedTask.filmRating}</p>
-    `;
 
+    // Construct the HTML string based on the condition
+    let htmlString = `<p><strong>${selectedTask.filmName}</strong></p>`;
+
+    //each form element is checked with an if statement so it can be omitted if it was left blank
+    //since there is always at least one genre submitted, we will instead check if the second string in the array was left blank and omit the comma
+    
+    if (selectedTask.filmGenre.length > 0) {
+      htmlString += `<p>Genre: ${selectedTask.filmGenre[0]}`;
+      
+      if (selectedTask.filmGenre[1] !== "") {
+        htmlString += `, ${selectedTask.filmGenre[1]}`;
+      }
+      
+      htmlString += `</p>`;
+    }
+    
+    if (selectedTask.filmRelease) {
+      htmlString += `<p>Release Date: ${selectedTask.filmRelease}</p>`;
+    }
+    
+    if (selectedTask.filmDirector) {
+      htmlString += `<p>Director: ${selectedTask.filmDirector}</p>`;
+    }
+    
+    if (selectedTask.filmCast.length > 0) {
+      //slicing the 'cast' array to omit entries past the third, for cleanliness
+      const cast = selectedTask.filmCast.slice(0, 3).join(", ");
+      htmlString += `<p>Cast: ${cast}</p>`;
+    }
+    
+    if (selectedTask.filmOriginalTitle) {
+      htmlString += `<p>Original Title: ${selectedTask.filmOriginalTitle}</p>`;
+    }
+    
+    if (selectedTask.filmRating) {
+      htmlString += `<p>Rating: ${selectedTask.filmRating}</p>`;
+    }
+
+    filmDetails.innerHTML = htmlString;
     filmModal.showModal();
   }
 }
@@ -209,7 +257,7 @@ function openModal(taskId) {
 
 
 // Call the function with test values for the input paramaters
-addTask("Alvin & the Chipmunks", "Action", "Drama", "Adolf Hitler", "(1939)", "Alvin", "1");
-addTask("Alvin & the Chipmunks 2: The Squeekwel", "Action", "Crime", "Adolf Hitler", "(1500bc)", "Alvin", "1");
-addTask("Alvin & the Chipmunks 3: Chipwrecked", "Action", "Adventure", "Adolf Hitler", "(40,000)", "Alvin", "1");
+addTask("Alvin & the Chipmunks", "Action", "Drama", "Adolf Hitler", "(1939)", "Alvin", "Salo", "1");
+// addTask("Alvin & the Chipmunks 2: The Squeekwel", "Action", "Crime", "Adolf Hitler", "(1500bc)", "Alvin", "Salo", "1");
+// addTask("Alvin & the Chipmunks 3: Chipwrecked", "Action", "Adventure", "Adolf Hitler", "(40,000)", "Alvin", "Salo", "1");
 displayTasks();
