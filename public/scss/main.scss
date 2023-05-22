@@ -119,10 +119,63 @@ html {
     // // display: none;
     //    }
        
+    #formModal{
+      width:982px;
+      height:524px;
+      // display:grid;
+      // grid-template-rows:1fr 1fr;
+      // grid-template-columns:1fr 1fr;
+      // align-content:center;
+      // justify-content:normal;
+      // float:none;
+      // grid-template-areas:
+      // ". closeFormButton" 
+      // "filmImage taskform";
+      // grid-template-columns:1fr !important;
+      // grid-template-rows:41.19fr !important;
+      float:none;
+      display:inline-flex;
+      flex-direction:row;
+      justify-content:center;
+      align-items:center;
+      z-index:-1; //for some reason the styling made this weirdly nest in between the navbar and the rest of the site when the modal isn't open. No idea why this works, but this appears to fix it? 
+     }
+
+     .taskform {
+      grid-area: taskform;
+      width:440px
+      
+     }
+
+     #filmImage{
+      grid-area: filmImage;
+      background-color:#d3d3d3;
+      width:316px;
+      height:468px;
+      // position:static;
+      // margin-left:28px;
+      align-self:center;
+      margin-right:124px;
+     }
+    
+     #closeFormButton {
+      grid-area: closeFormButton;
+      display:grid;
+      justify-content:flex-end;
+      float:right;
+      width: 20px;
+      height: 20px;
+      display:inline-flex;
+      align-self:flex-start;
+      
+     }
+
        .form-row {
      display: flex;
-     justify-content: flex-start;
+    //  justify-content: flex-start;
      padding: .5em;
+     justify-content:normal;
+     align-items:center;
        }
        
        .form-row > label {
@@ -132,4 +185,9 @@ html {
        .form-row > input {
      padding: .5em;
      flex-grow: 1;
+       }
+
+       #filmRelease{
+        width:70% !important;
+        overflow:auto !important;
        }
