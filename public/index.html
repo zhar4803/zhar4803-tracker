@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width">
   <title>Task Tracker</title>
   <link href="scss/main.scss" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://use.typekit.net/tmb6wgl.css"> 
+<!-- This extra sheet is just the 'Owners' font family from adobe fonts. I don't really want to mess with it! -->
 </head>
 
 <body>
@@ -24,12 +26,13 @@
       <form id="taskform">
         
         <div class="form-row">
-          <label for="filmName">Title</label>
+          <label for="filmName"><em>Title</em></label>
           <input type="text" name="filmName" id="filmName" required/>
+          <p><strong>*</strong></p>
         </div>
 
         <div class="form-row">
-          <label for="filmGenre">Genre</label>
+          <label for="filmGenre"><em>Genre</em></label>
           <select name="filmGenre" id="filmGenre" required >
                 <option value="">- Genre -</option>
                   <option value="Action">Action</option>
@@ -73,7 +76,7 @@
                 <option value=" War">War</option>
                 <option value=" Western">Western</option>
           </select>
-
+          <p><strong>*</strong></p>
         </div>
 
           <div class ="form-row">
@@ -199,7 +202,7 @@
             <input type="text" name="filmOriginalTitle" id="filmOriginalTitle" />
           </div>
           <div class="form-row">
-            <label for="filmRating">Rating:</label>
+            <label for="filmRating"><em>Rating:</em></label>
             <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = "0.5" />
             <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = "1" />
             <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = "1.5" />
@@ -210,14 +213,16 @@
             <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 8 />
             <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 9 />
             <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 10 />
+            <p><strong>*</strong></p>
           </div>
             <div class="form-row">
             <label for="filmLogOrList">Add to Film Log</label>
               <input type="radio" name="filmLogOrList" id="filmLogOrList" required="false" />
               <label for="filmLogOrList">Add to Watchlist</label>
               <input type="radio" name="filmLogOrList" id="filmLogOrList" required="false" />
+              <p><strong>*</strong></p>
           </div>
-          <div class="form-row">
+          <div class="form-row" id="submitButton">
             <input type="submit">
           </div>
             
@@ -226,8 +231,9 @@
       <button id='closeFormButton'>X</button>
       </dialog>
       <dialog id="filmModal" data-modal>
-        <button id="closeEntryButton">X</button>
+        <div id="filmImage"></div>
         <div id="filmDetails"></div>
+        <button id="closeEntryButton">X</button>
       </dialog>
       <div class ="FilmLog">  
         <!-- <h2>Tasks</h2> -->
