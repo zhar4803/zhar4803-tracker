@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Task Tracker</title>
+  <title>VIDEOTOME</title>
   <link href="scss/main.scss" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://use.typekit.net/tmb6wgl.css"> 
 <!-- This extra sheet is just the 'Owners' font family from adobe fonts. I don't really want to mess with it! -->
@@ -28,8 +28,9 @@
         <div class="form-row">
           <label for="filmName"><em>Title</em></label>
           <input type="text" name="filmName" id="filmName" required/>
-          <p><strong>*</strong></p>
         </div>
+
+              <em id ="required">*</em>
 
         <div class="form-row">
           <label for="filmGenre"><em>Genre</em></label>
@@ -76,8 +77,10 @@
                 <option value=" War">War</option>
                 <option value=" Western">Western</option>
           </select>
-          <p><strong>*</strong></p>
+          
         </div>
+
+                <em id ="required">*</em>
 
           <div class ="form-row">
             <label for="filmRelease">Release Date</label>
@@ -213,15 +216,19 @@
             <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 8 />
             <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 9 />
             <input type ="radio" name="filmRating" id ="filmRating" required ="true" value = 10 />
-            <p><strong>*</strong></p>
           </div>
+
+                <em id ="required">*</em>
+
             <div class="form-row">
             <label for="filmLogOrList">Add to Film Log</label>
               <input type="radio" name="filmLogOrList" id="filmLogOrList" required="false" />
               <label for="filmLogOrList">Add to Watchlist</label>
               <input type="radio" name="filmLogOrList" id="filmLogOrList" required="false" />
-              <p><strong>*</strong></p>
           </div>
+
+                <em id ="required">*</em>
+
           <div class="form-row" id="submitButton">
             <input type="submit">
           </div>

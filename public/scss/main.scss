@@ -138,6 +138,7 @@ html {
       flex-direction:row;
       justify-content:center;
       align-items:center;
+      background-color: #666666; 
       z-index:-1; //for some reason the styling made this weirdly nest in between the navbar and the rest of the site when the modal isn't open. No idea why this works, but this appears to fix it? 
      }
 
@@ -237,5 +238,20 @@ html {
        #submitButton{
         width:334px !important;
         float:right;
+       }
+
+       #filmGenre {
+        width:35%; 
+       }
+
+       #filmGenre2 {
+        width:35%; 
+       }
+
+       #required {
+        float:right;
+        display:flex;
+        position:relative;
+        top:-29px;
        }
        

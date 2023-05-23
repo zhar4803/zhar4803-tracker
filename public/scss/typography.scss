@@ -1,19 +1,22 @@
-#taskform label{
+#taskform label {
     font-family: "owners", sans-serif;
 font-weight: 400;
 font-style: normal;
    }
 
-   #taskform label > em {
+   #taskform {
+    color: white;
+   }
+
+   #taskform em {
 
     font-family: "owners", sans-serif;
     font-weight: 700;
     font-style: italic;
+    color:#ffff00;
    }
 
-   #taskform #formrow > p {
-
-    font-family: "owners", sans-serif;
-    font-weight: 700;
-    font-style: italic;
+   #required{
+    font-size:20px;
    }
+
