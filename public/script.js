@@ -211,42 +211,42 @@ function openfilmModal(taskId) {
     const filmDetails = document.getElementById("filmDetails");
 
     // Constructing a string which will then be fed into the innerhtml at the end
-    let entryContent = `<p><strong>${selectedTask.filmName}</strong></p>`;
+    let entryContent = `<div class ="entry-row"><em class ="entry-label">Title:</em>${selectedTask.filmName}</div>`;
 
     //each form element is checked with an if statement so it can be omitted if it wasn't submitted
     //since there is always at least one genre submitted, we will instead check if the second string in the array was left blank and omit the comma if it is
     
     if (selectedTask.filmGenre.length > 0) {
-      entryContent += `<p>Genre: ${selectedTask.filmGenre[0]}`;
+      entryContent += `<div class ="entry-row"><em class ="entry-label">Genre:</em> ${selectedTask.filmGenre[0]}`;
       
       if (selectedTask.filmGenre[1] !== "") {
         entryContent += `, ${selectedTask.filmGenre[1]}`;
       }
       
-      entryContent += `</p>`;
+      entryContent += `</div>`;
     }
     
     if (selectedTask.filmRelease) {
-      entryContent += `<p>Release Date: ${selectedTask.filmRelease}</p>`;
+      entryContent += `<div class ="entry-row"><em class ="entry-label">Release Date:</em> ${selectedTask.filmRelease}</div>`;
     }
     
     if (selectedTask.filmDirector) {
-      entryContent += `<p>Director: ${selectedTask.filmDirector}</p>`;
+      entryContent += `<div class ="entry-row"><em class ="entry-label">Director:</em> ${selectedTask.filmDirector}</div>`;
     }
     
     //since the filmCast is supposed to be an entry with three arrays, we will instead check if the filmCast array only has a blank string as an entry
     if (selectedTask.filmCast[0] !== "") {
       //slicing the 'cast' array to omit entries past the third, for cleanliness
       const cast = selectedTask.filmCast.slice(0, 3).join(", ");
-      entryContent += `<p>Cast: ${cast}</p>`;
+      entryContent += `<div class ="entry-row"><em class ="entry-label">Cast:</em> ${cast}</div>`;
     }
     
     if (selectedTask.filmOriginalTitle) {
-      entryContent += `<p>Original Title: ${selectedTask.filmOriginalTitle}</p>`;
+      entryContent += `<div class ="entry-row"><em class ="entry-label">Original Title:</em> ${selectedTask.filmOriginalTitle}</div>`;
     }
     
     if (selectedTask.filmRating) {
-      entryContent += `<p>Rating: ${selectedTask.filmRating}</p>`;
+      entryContent += `<div class ="entry-row"><em class ="entry-label">Rating:</em> ${selectedTask.filmRating}</div>`;
     }
 
     filmDetails.innerHTML = entryContent;
