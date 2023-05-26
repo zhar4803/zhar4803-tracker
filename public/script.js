@@ -10,6 +10,8 @@ const closeForm = document.getElementById("closeFormButton");
 const filmModal = document.getElementById("filmModal");
 const closeEntry = document.getElementById("closeEntryButton");
 
+const iconAction = 'https://i.imgur.com/FyHOGba.png';
+const iconDrama = 'https://i.imgur.com/psQIgtI.png';
 
 
 
@@ -110,10 +112,78 @@ function displayTasks() {
         // Clear the value of the input once the task has been added to the page
         form.reset();
 
-        var genreIcon = document.createElement("img");
-        //adding the placeholder genre 'sticker' icon - to do: if statement for determining if the icon is needed and the appropriate genre
-        genreIcon.src = '../images/iconaction.png';
-        item.appendChild(genreIcon);
+        // if (item.filmGenre.length > 0) {
+        //   // entryContent += `<div class ="entry-row"><em class ="entry-label">Genre:</em> ${item.filmGenre[0]}`;
+        //   var genreIcon = document.createElement("img");        //adding the placeholder genre 'sticker' icon - to do: if statement for determining if the icon is needed and the appropriate genre
+        // genreIcon.src = `./images/icon${item.filmGenre[0]}.png`;
+        //                     genreIcon.src = '../images/iconaction.png';
+        // item.appendChild(genreIcon);
+          
+        //   if (item.filmGenre[1] !== "") {
+        //     entryContent += `, ${item.filmGenre[1]}`;
+        //     var genreIcon2 = document.createElement("img");
+        //     // genreIcon2.src = `./images/icon${item.filmGenre[1]}.png`;
+        //             genreIcon2.src = '../images/iconaction.png';
+        //   item.appendChild(genreIcon2);
+        //   }
+        // }
+//
+if (task.filmGenre[0] === "Action") {
+  var genreIcon = document.createElement("img");
+  genreIcon.src = 'https://i.imgur.com/FyHOGba.png';
+  item.appendChild(genreIcon);
+
+} else if (task.filmGenre[0] === "Adventure") {
+
+} else if (task.filmGenre[0] === "Comedy") {
+
+} else if (task.filmGenre[0] === "Crime") {
+
+} else if (task.filmGenre[0] === "Documentary") {
+
+} else if (task.filmGenre[0] === "Drama") {
+  var genreIcon = document.createElement("img");
+  genreIcon.src = 'https://i.imgur.com/psQIgtI.png';
+  item.appendChild(genreIcon);
+
+} else if (task.filmGenre[0] === "Family") {
+
+} else if (task.filmGenre[0] === "Fantasy") {
+
+} else if (task.filmGenre[0] === "History") {
+
+} else if (task.filmGenre[0] === "Horror") {
+
+} else if (task.filmGenre[0] === "Music") {
+
+} else if (task.filmGenre[0] === "Mystery") {
+
+} else if (task.filmGenre[0] === "Romance") {
+
+} else if (task.filmGenre[0] === "Science Fiction") {
+
+} else if (task.filmGenre[0] === "Thriller") {
+
+} else if (task.filmGenre[0] === "TV Movie") {
+
+} else if (task.filmGenre[0] === "War") {
+
+} else if (task.filmGenre[0] === "Western") {
+
+} else {
+
+}
+//
+        // var genreIcon = document.createElement("img");
+        // //adding the placeholder genre 'sticker' icon - to do: if statement for determining if the icon is needed and the appropriate genre
+        // genreIcon.src = 'https://i.imgur.com/FyHOGba.png';
+        // item.appendChild(genreIcon);
+
+// if (item.filmGenre = "Action") {
+// item.style.backgroundImage = "url(https://i.imgur.com/47JX46m.png)"
+// } if (item.filmGenre[1] = "Comedy") {
+//   item.style.backgroundImage = "url(https://i.imgur.com/47JX46m.png)"
+// }
 
         // Setup delete button DOM elements
         let delButton = document.createElement("button");
@@ -282,14 +352,14 @@ function openfilmModal(taskId) {
 // function for randomly choosing a bunch of films and adding them for testing purposes
 function randomlyChooseTasks(numberOfTasks) {
   const tasks = [
-    () => addTask("Alvin & the Chipmunks", "Action", "Drama", "Adolf Hitler", "(1939)", "Alvin", "Salo", "1"),
-    () => addTask("Alvin & the Chipmunks 2: The Squeekwel", "Action", "Crime", "Adolf Hitler", "(1500bc)", "Alvin", "Salo", "1"),
-    () => addTask("Alvin & the Chipmunks 3: Chipwrecked", "Action", "Adventure", "Adolf Hitler", "(40,000)", "Alvin", "Salo", "1"),
-    () => addTask("Alvin & the Chipmunks 4: Alvin Goes to Hell", "Action", "Adventure", "Adolf Hitler", "(40,000)", "Alvin", "Salo", "1"),
-    () => addTask("Alvin & the Chipmunks 5: The Revenge", "Action", "Adventure", "Adolf Hitler", "(40,000)", "Alvin", "Salo", "1"),
-    () => addTask("Alvin & the Chipmunks 6: The Final Alvin", "Action", "Adventure", "Adolf Hitler", "(40,000)", "Alvin", "Salo", "1"),
-    () => addTask("Alvin & the Chipmunks 7: A New Beginning", "Action", "Adventure", "Adolf Hitler", "(40,000)", "Alvin", "Salo", "1"),
-    () => addTask("Alvin & the Chipmunks 8: Alvin's Return", "Action", "Adventure", "Adolf Hitler", "(40,000)", "Alvin", "Salo", "1"),
+    () => addTask("Alvin & the Chipmunks", "Drama", "Drama", "Alan Smithee", "(1939)", "Alvin", "Salo", "1"),
+    () => addTask("Alvin & the Chipmunks 2: The Squeekwel", "Action", "Crime", "Alan Smithee", "(1500bc)", "Alvin", "Salo", "1"),
+    () => addTask("Alvin & the Chipmunks 3: Chipwrecked", "Drama", "Adventure", "Alan Smithee", "(40,000)", "Alvin", "Salo", "1"),
+    () => addTask("Alvin & the Chipmunks 4: Alvin Goes to Hell", "Action", "Adventure", "Alan Smithee", "(40,000)", "Alvin", "Salo", "1"),
+    () => addTask("Alvin & the Chipmunks 5: The Revenge", "Drama", "Adventure", "Alan Smithee", "(40,000)", "Alvin", "Salo", "1"),
+    () => addTask("Alvin & the Chipmunks 6: The Final Alvin", "Action", "Adventure", "Alan Smithee", "(40,000)", "Alvin", "Salo", "1"),
+    () => addTask("Alvin & the Chipmunks 7: A New Beginning", "Drama", "Adventure", "Alan Smithee", "(40,000)", "Alvin", "Salo", "1"),
+    () => addTask("Alvin & the Chipmunks 8: Alvin's Return", "Action", "Adventure", "Alan Smithee", "(40,000)", "Alvin", "Salo", "1"),
   ];
 
   // Shuffle the tasks array using the Fisher-Yates algorithm
@@ -306,6 +376,6 @@ function randomlyChooseTasks(numberOfTasks) {
   }
 }
 
-// randomlyChooseTasks(5);
+randomlyChooseTasks(5);
 
 displayTasks();
