@@ -10,6 +10,9 @@ const closeForm = document.getElementById("closeFormButton");
 const filmModal = document.getElementById("filmModal");
 const closeEntry = document.getElementById("closeEntryButton");
 
+
+import icons from './images/icons/*.png';
+
 const iconAction = 'https://i.imgur.com/FyHOGba.png';
 const iconDrama = 'https://i.imgur.com/psQIgtI.png';
 
@@ -96,6 +99,37 @@ function displayTasks() {
     if (localTasks !== null) { 
 
       localTasks.forEach((task) => {
+
+        let taskImage = null;
+        switch (task.filmGenre[0]) {
+            case 'Action':
+                taskImage = icons['iconaction']
+                break;
+            case 'Drama':
+                taskImage = icons['icondrama']
+                break;
+            // case 'Application Coding':
+            //     taskImage = images['code']
+            //     break;
+            default:
+                break;
+        }
+
+        let taskImage2 = null;
+        switch (task.filmGenre[1]) {
+            case 'Action':
+                taskImage2 = icons['iconaction']
+                break;
+            case 'Drama':
+                taskImage2 = icons['icondrama']
+                break;
+            // case 'Application Coding':
+            //     taskImage = images['code']
+            //     break;
+            default:
+                break;
+        }
+
         //all the code for generating items for the page happens here
 
         console.log(task)
@@ -112,78 +146,17 @@ function displayTasks() {
         // Clear the value of the input once the task has been added to the page
         form.reset();
 
-        // if (item.filmGenre.length > 0) {
-        //   // entryContent += `<div class ="entry-row"><em class ="entry-label">Genre:</em> ${item.filmGenre[0]}`;
-        //   var genreIcon = document.createElement("img");        //adding the placeholder genre 'sticker' icon - to do: if statement for determining if the icon is needed and the appropriate genre
-        // genreIcon.src = `./images/icon${item.filmGenre[0]}.png`;
-        //                     genreIcon.src = '../images/iconaction.png';
-        // item.appendChild(genreIcon);
-          
-        //   if (item.filmGenre[1] !== "") {
-        //     entryContent += `, ${item.filmGenre[1]}`;
-        //     var genreIcon2 = document.createElement("img");
-        //     // genreIcon2.src = `./images/icon${item.filmGenre[1]}.png`;
-        //             genreIcon2.src = '../images/iconaction.png';
-        //   item.appendChild(genreIcon2);
-        //   }
-        // }
-//
-if (task.filmGenre[0] === "Action") {
+
+        //now let's add our little genre sticker icons!
   var genreIcon = document.createElement("img");
-  genreIcon.src = 'https://i.imgur.com/FyHOGba.png';
+  genreIcon.src = taskImage;
   item.appendChild(genreIcon);
 
-} else if (task.filmGenre[0] === "Adventure") {
+  var genreIcon2 = document.createElement("img");
+  // genreIcon.src = 'https://i.imgur.com/FyHOGba.png';
+  genreIcon2.src = taskImage2;
+  item.appendChild(genreIcon2);
 
-} else if (task.filmGenre[0] === "Comedy") {
-
-} else if (task.filmGenre[0] === "Crime") {
-
-} else if (task.filmGenre[0] === "Documentary") {
-
-} else if (task.filmGenre[0] === "Drama") {
-  var genreIcon = document.createElement("img");
-  genreIcon.src = 'https://i.imgur.com/psQIgtI.png';
-  item.appendChild(genreIcon);
-
-} else if (task.filmGenre[0] === "Family") {
-
-} else if (task.filmGenre[0] === "Fantasy") {
-
-} else if (task.filmGenre[0] === "History") {
-
-} else if (task.filmGenre[0] === "Horror") {
-
-} else if (task.filmGenre[0] === "Music") {
-
-} else if (task.filmGenre[0] === "Mystery") {
-
-} else if (task.filmGenre[0] === "Romance") {
-
-} else if (task.filmGenre[0] === "Science Fiction") {
-
-} else if (task.filmGenre[0] === "Thriller") {
-
-} else if (task.filmGenre[0] === "TV Movie") {
-
-} else if (task.filmGenre[0] === "War") {
-
-} else if (task.filmGenre[0] === "Western") {
-
-} else {
-
-}
-//
-        // var genreIcon = document.createElement("img");
-        // //adding the placeholder genre 'sticker' icon - to do: if statement for determining if the icon is needed and the appropriate genre
-        // genreIcon.src = 'https://i.imgur.com/FyHOGba.png';
-        // item.appendChild(genreIcon);
-
-// if (item.filmGenre = "Action") {
-// item.style.backgroundImage = "url(https://i.imgur.com/47JX46m.png)"
-// } if (item.filmGenre[1] = "Comedy") {
-//   item.style.backgroundImage = "url(https://i.imgur.com/47JX46m.png)"
-// }
 
         // Setup delete button DOM elements
         let delButton = document.createElement("button");
