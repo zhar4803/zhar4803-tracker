@@ -271,13 +271,18 @@ function addTask(filmName, filmGenre1, filmGenre2, filmDirector, filmRelease, fi
 //my function for filling out the film detail modal with details from each individual attribute on the form
 
 function openfilmModal(taskId) {
-  //opening the tasks from local storage
-  let localTasks = JSON.parse(localStorage.getItem('tasks'));
-  //grabbing the correct task using the id attribute
-  let selectedTask = localTasks.find(task => task.id === taskId);
 
-  if (selectedTask) {
-    // Populate the modal with the attributes of the selected film
+
+    // Opening the tasks from local storage
+    let localTasks = JSON.parse(localStorage.getItem('tasks'));
+
+    // searching our tasks for the correct ID, if nothing is found, it returns -1
+    let selectedTaskIndex = localTasks.findIndex(task => task.id === taskId);
+  
+    if (selectedTaskIndex !== -1) { //so lets check if it hasn't returned -1.
+      const selectedTask = localTasks[selectedTaskIndex]; //if it's all good, then let's make a selectedtask object that we will build this modal from!
+
+    // Populating the modal with the attributes of the selected film
     const filmDetails = document.getElementById("filmDetails");
 
     // Constructing a string which will then be fed into the innerhtml at the end
@@ -320,31 +325,23 @@ function openfilmModal(taskId) {
     }
 
     filmDetails.innerHTML = entryContent;
-
-        //     // Setup delete button DOM elements
-        // let entryDelButton = document.createElement("button");
-        // let delButtonText = document.createTextNode("Delete");
-        // entryDelButton.appendChild(delButtonText);
-        // filmDetails.appendChild(delButton); // Adds a delete button to every task
-
-        // // Listen for when the delete button is clicked
-        // entryDelButton.addEventListener("click", function (event) { 
-
-        //     localTasks.forEach(function (taskArrayElement, taskArrayIndex) {
-        //         if (taskArrayElement.id == item.getAttribute('data-id')) {
-        //             localTasks.splice(taskArrayIndex, 1)
-        //         }
-        //     })
-
-        //     localStorage.setItem('tasks', JSON.stringify(localTasks));
-
-        //     item.remove(); // Remove the task item from the page when button clicked
-        //     // Because we used 'let' to define the item, 
-        //     // this will always delete the right element
-        // })
+    
+      // now let's add the delete button, adapted from the code given before 
+      let delButton = document.createElement("button");
+      let delButtonText = document.createTextNode("Delete");
+      delButton.appendChild(delButtonText);
+      filmDetails.appendChild(delButton); // Adds a delete button to the modal
+  
+      // Listen for when the delete button is clicked
+      delButton.addEventListener("click", function (event) {
+        localTasks.splice(selectedTaskIndex, 1); // Remove the selected task from the localTasks array
+        localStorage.setItem('tasks', JSON.stringify(localTasks)); // Update the localStorage
+        filmModal.close(); // Close the modal
+        displayTasks(); // Refresh the task list
+      });
 
     filmModal.showModal();
-  }
+  } 
 }
 
 
