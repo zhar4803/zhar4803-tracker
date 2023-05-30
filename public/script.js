@@ -115,6 +115,7 @@ function displayTasks() {
                 break;
         }
 
+        // if (task.filmGenre[1] !== "") {
         let taskImage2 = null;
         switch (task.filmGenre[1]) {
             case 'Action':
@@ -129,6 +130,7 @@ function displayTasks() {
             default:
                 break;
         }
+      // }
 
         //all the code for generating items for the page happens here
 
