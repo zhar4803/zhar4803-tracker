@@ -153,12 +153,6 @@ function displayTasks() {
           case 'Western':
             taskImage = icons['iconwestern']
             break;
-          case 'Mystery':
-            taskImage = icons['iconmystery']
-            break;
-          case 'Drama':
-            taskImage = icons['icondrama']
-            break;
           default:
             break;
         }
@@ -216,12 +210,6 @@ function displayTasks() {
             break;
           case 'Western':
             taskImage2 = icons['iconwestern']
-            break;
-          case 'Mystery':
-            taskImage2 = icons['iconmystery']
-            break;
-          case 'Drama':
-            taskImage2 = icons['icondrama']
             break;
           default:
             break;
@@ -359,44 +347,88 @@ function openfilmModal(taskId) {
     // Populating the modal with the attributes of the selected film
     const filmDetails = document.getElementById("filmDetails");
 
+    // EXPERIMENTAL POTENTIALLY FUCKED CONTENT
+
     // Constructing a string which will then be fed into the innerhtml at the end
-    let entryContent = `<div class ="entry-row"><em class ="entry-label">Title:</em>${selectedTask.filmName}</div>`;
+    let entryContent = `<div class ="entry-row"><div class ="entry-label"><em>Title:</em></div><div class ="entry-text">${selectedTask.filmName}</div></div>`;
 
     //each form element is checked with an if statement so it can be omitted if it wasn't submitted
     //since there is always at least one genre submitted, we will instead check if the second string in the array was left blank and omit the comma if it is
     
     if (selectedTask.filmGenre.length > 0) {
-      entryContent += `<div class ="entry-row"><em class ="entry-label">Genre:</em> ${selectedTask.filmGenre[0]}`;
+      entryContent += `<div class ="entry-row"><div class ="entry-label"><em>Genre:</em></div><div class ="entry-text"> ${selectedTask.filmGenre[0]}`;
       
       if (selectedTask.filmGenre[1] !== "") {
         entryContent += `, ${selectedTask.filmGenre[1]}`;
       }
       
-      entryContent += `</div>`;
+      entryContent += `</div></div>`;
     }
     
     if (selectedTask.filmRelease) {
-      entryContent += `<div class ="entry-row"><em class ="entry-label">Release Date:</em> ${selectedTask.filmRelease}</div>`;
+      entryContent += `<div class ="entry-row"><em class ="entry-label">Release Date:</em><div class ="entry-text"> ${selectedTask.filmRelease}</div></div>`;
     }
     
     if (selectedTask.filmDirector) {
-      entryContent += `<div class ="entry-row"><em class ="entry-label">Director:</em> ${selectedTask.filmDirector}</div>`;
+      entryContent += `<div class ="entry-row"><em class ="entry-label">Director:</em><div class ="entry-text"> ${selectedTask.filmDirector}</div></div>`;
     }
     
     //since the filmCast is supposed to be an entry with three arrays, we will instead check if the filmCast array only has a blank string as an entry
     if (selectedTask.filmCast[0] !== "") {
       //slicing the 'cast' array to omit entries past the third, for cleanliness
       const cast = selectedTask.filmCast.slice(0, 3).join(", ");
-      entryContent += `<div class ="entry-row"><em class ="entry-label">Cast:</em> ${cast}</div>`;
+      entryContent += `<div class ="entry-row"><em class ="entry-label">Cast:</em><div class ="entry-text"> ${cast}</div></div>`;
     }
     
     if (selectedTask.filmOriginalTitle) {
-      entryContent += `<div class ="entry-row"><em class ="entry-label">Original Title:</em> ${selectedTask.filmOriginalTitle}</div>`;
+      entryContent += `<div class ="entry-row"><em class ="entry-label">Original Title:</em><div class ="entry-text"> ${selectedTask.filmOriginalTitle}</div></div>`;
     }
     
     if (selectedTask.filmRating) {
-      entryContent += `<div class ="entry-row"><em class ="entry-label">Rating:</em> ${selectedTask.filmRating}</div>`;
+      entryContent += `<div class ="entry-row"><em class ="entry-label">Rating:</em><div class ="entry-text"> ${selectedTask.filmRating}</div></div>`;
     }
+
+
+    // NON FUCKED JS
+
+    // // Constructing a string which will then be fed into the innerhtml at the end
+    // let entryContent = `<div class ="entry-row"><em class ="entry-label">Title:</em>${selectedTask.filmName}</div>`;
+
+    // //each form element is checked with an if statement so it can be omitted if it wasn't submitted
+    // //since there is always at least one genre submitted, we will instead check if the second string in the array was left blank and omit the comma if it is
+    
+    // if (selectedTask.filmGenre.length > 0) {
+    //   entryContent += `<div class ="entry-row"><em class ="entry-label">Genre:</em> ${selectedTask.filmGenre[0]}`;
+      
+    //   if (selectedTask.filmGenre[1] !== "") {
+    //     entryContent += `, ${selectedTask.filmGenre[1]}`;
+    //   }
+      
+    //   entryContent += `</div>`;
+    // }
+    
+    // if (selectedTask.filmRelease) {
+    //   entryContent += `<div class ="entry-row"><em class ="entry-label">Release Date:</em> ${selectedTask.filmRelease}</div>`;
+    // }
+    
+    // if (selectedTask.filmDirector) {
+    //   entryContent += `<div class ="entry-row"><em class ="entry-label">Director:</em> ${selectedTask.filmDirector}</div>`;
+    // }
+    
+    // //since the filmCast is supposed to be an entry with three arrays, we will instead check if the filmCast array only has a blank string as an entry
+    // if (selectedTask.filmCast[0] !== "") {
+    //   //slicing the 'cast' array to omit entries past the third, for cleanliness
+    //   const cast = selectedTask.filmCast.slice(0, 3).join(", ");
+    //   entryContent += `<div class ="entry-row"><em class ="entry-label">Cast:</em> ${cast}</div>`;
+    // }
+    
+    // if (selectedTask.filmOriginalTitle) {
+    //   entryContent += `<div class ="entry-row"><em class ="entry-label">Original Title:</em> ${selectedTask.filmOriginalTitle}</div>`;
+    // }
+    
+    // if (selectedTask.filmRating) {
+    //   entryContent += `<div class ="entry-row"><em class ="entry-label">Rating:</em> ${selectedTask.filmRating}</div>`;
+    // }
 
     filmDetails.innerHTML = entryContent;
     
@@ -447,6 +479,6 @@ function randomlyChooseTasks(numberOfTasks) {
   }
 }
 
-randomlyChooseTasks(5);
+// randomlyChooseTasks(5);
 
 displayTasks();
