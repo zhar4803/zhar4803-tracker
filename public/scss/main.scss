@@ -92,6 +92,24 @@ html {
             box-shadow: 0px 8px 10px #0c0c0c;
           }
 
+          #film img{
+            width:100px;
+            height:100px;
+            position:relative;
+            top:62px;
+           }
+           
+           /* repositioning the first genre sticker */
+           #film img:nth-child(2){
+            top:58px;
+            right:-48px;
+           }
+           /* repositioning the second genre sticker */
+           #film img:nth-child(3){
+            top:120px;
+           }
+           
+
        ul {
         display: grid;
         grid-template-columns: auto auto auto auto auto;

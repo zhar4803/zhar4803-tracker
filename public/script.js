@@ -102,33 +102,129 @@ function displayTasks() {
 
         let taskImage = null;
         switch (task.filmGenre[0]) {
-            case 'Action':
-                taskImage = icons['iconaction']
-                break;
-            case 'Drama':
-                taskImage = icons['icondrama']
-                break;
-            // case 'Application Coding':
-            //     taskImage = images['code']
-            //     break;
-            default:
-                break;
+          case 'Action':
+            taskImage = icons['iconaction']
+            break;
+          case 'Adventure':
+            taskImage = icons['iconadventure']
+            break;
+          case 'Comedy':
+            taskImage = icons['iconcomedy']
+            break;
+          case 'Crime':
+            taskImage = icons['iconcrime']
+            break;
+          case 'Documentary':
+            taskImage = icons['icondocumentary']
+            break;
+          case 'Drama':
+            taskImage = icons['icondrama']
+            break;
+          case 'Family':
+            taskImage = icons['iconfamily']
+            break;
+          case 'Fantasy':
+            taskImage = icons['iconfantasy']
+            break;
+          case 'History':
+            taskImage = icons['iconhistory']
+            break;
+          case 'Horror':
+            taskImage = icons['iconhorror']
+            break;
+          case 'Music':
+            taskImage = icons['iconmusic']
+            break;
+          case 'Mystery':
+            taskImage = icons['iconmystery']
+            break;
+          case 'Romance':
+            taskImage = icons['iconromance']
+            break;
+          case 'Science Fiction':
+            taskImage = icons['iconscifi']
+            break;
+          case 'Thriller':
+            taskImage = icons['icontv']
+            break;
+          case 'War':
+            taskImage = icons['iconwar']
+            break;
+          case 'Western':
+            taskImage = icons['iconwestern']
+            break;
+          case 'Mystery':
+            taskImage = icons['iconmystery']
+            break;
+          case 'Drama':
+            taskImage = icons['icondrama']
+            break;
+          default:
+            break;
         }
 
         // if (task.filmGenre[1] !== "") {
         let taskImage2 = null;
         switch (task.filmGenre[1]) {
-            case 'Action':
-                taskImage2 = icons['iconaction']
-                break;
-            case 'Drama':
-                taskImage2 = icons['icondrama']
-                break;
-            // case 'Application Coding':
-            //     taskImage = images['code']
-            //     break;
-            default:
-                break;
+          case 'Action':
+            taskImage2 = icons['iconaction']
+            break;
+          case 'Adventure':
+            taskImage2 = icons['iconadventure']
+            break;
+          case 'Comedy':
+            taskImage2 = icons['iconcomedy']
+            break;
+          case 'Crime':
+            taskImage2 = icons['iconcrime']
+            break;
+          case 'Documentary':
+            taskImage2 = icons['icondocumentary']
+            break;
+          case 'Drama':
+            taskImage2 = icons['icondrama']
+            break;
+          case 'Family':
+            taskImage2 = icons['iconfamily']
+            break;
+          case 'Fantasy':
+            taskImage2 = icons['iconfantasy']
+            break;
+          case 'History':
+            taskImage2 = icons['iconhistory']
+            break;
+          case 'Horror':
+            taskImage2 = icons['iconhorror']
+            break;
+          case 'Music':
+            taskImage2 = icons['iconmusic']
+            break;
+          case 'Mystery':
+            taskImage2 = icons['iconmystery']
+            break;
+          case 'Romance':
+            taskImage2 = icons['iconromance']
+            break;
+          case 'Science Fiction':
+            taskImage2 = icons['iconscifi']
+            break;
+          case 'Thriller':
+            taskImage2 = icons['icontv']
+            break;
+          case 'War':
+            taskImage2 = icons['iconwar']
+            break;
+          case 'Western':
+            taskImage2 = icons['iconwestern']
+            break;
+          case 'Mystery':
+            taskImage2 = icons['iconmystery']
+            break;
+          case 'Drama':
+            taskImage2 = icons['icondrama']
+            break;
+          default:
+            break;
         }
       // }
 
@@ -154,33 +250,36 @@ function displayTasks() {
   genreIcon.src = taskImage;
   item.appendChild(genreIcon);
 
+  // since the second genre is optional, let's check that the array isn't empty first
+  if (task.filmGenre[1] !== "") { 
   var genreIcon2 = document.createElement("img");
   // genreIcon.src = 'https://i.imgur.com/FyHOGba.png';
   genreIcon2.src = taskImage2;
   item.appendChild(genreIcon2);
+  }
 
 
         // Setup delete button DOM elements
-        let delButton = document.createElement("button");
-        let delButtonText = document.createTextNode("Delete");
-        delButton.appendChild(delButtonText);
-        item.appendChild(delButton); // Adds a delete button to every task
+        // let delButton = document.createElement("button");
+        // let delButtonText = document.createTextNode("Delete");
+        // delButton.appendChild(delButtonText);
+        // item.appendChild(delButton); // Adds a delete button to every task
 
-        // Listen for when the delete button is clicked
-        delButton.addEventListener("click", function (event) {
+        // // Listen for when the delete button is clicked
+        // delButton.addEventListener("click", function (event) {
 
-            localTasks.forEach(function (taskArrayElement, taskArrayIndex) {
-                if (taskArrayElement.id == item.getAttribute('data-id')) {
-                    localTasks.splice(taskArrayIndex, 1)
-                }
-            })
+        //     localTasks.forEach(function (taskArrayElement, taskArrayIndex) {
+        //         if (taskArrayElement.id == item.getAttribute('data-id')) {
+        //             localTasks.splice(taskArrayIndex, 1)
+        //         }
+        //     })
 
-            localStorage.setItem('tasks', JSON.stringify(localTasks));
+        //     localStorage.setItem('tasks', JSON.stringify(localTasks));
 
-            item.remove(); // Remove the task item from the page when button clicked
-            // Because we used 'let' to define the item, 
-            // this will always delete the right element
-        })
+        //     item.remove(); // Remove the task item from the page when button clicked
+        //     // Because we used 'let' to define the item, 
+        //     // this will always delete the right element
+        // })
 
         //adding a listener to open a separate modal with the item attributes on click. see function below
         item.addEventListener("click", function () {
