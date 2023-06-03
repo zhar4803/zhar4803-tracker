@@ -13,9 +13,6 @@ const closeEntry = document.getElementById("closeEntryButton");
 
 import icons from './images/icons/*.png';
 
-const iconAction = 'https://i.imgur.com/FyHOGba.png';
-const iconDrama = 'https://i.imgur.com/psQIgtI.png';
-
 
 
 // opening the add film dialogue on clicking the button
@@ -100,6 +97,7 @@ function displayTasks() {
 
       localTasks.forEach((task) => {
 
+        // Assigning the taskImage variable to the correct Icon for the genre via a switch case
         let taskImage = null;
         switch (task.filmGenre[0]) {
           case 'Action':
@@ -232,6 +230,45 @@ function displayTasks() {
         // Clear the value of the input once the task has been added to the page
         form.reset();
 
+        let taskrating = null;
+        switch (task.filmRating) {
+          case '1':
+            taskrating = icons['.5']
+            break;
+          case '2':
+            taskrating = icons['1']
+            break;
+          case '3':
+            taskrating = icons['1.5']
+            break;
+          case '4':
+            taskrating = icons['2']
+            break;
+          case '5':
+            taskrating = icons['2.5']
+            break;
+          case '6':
+            taskrating = icons['3']
+            break;
+          case '7':
+            taskrating = icons['3.5']
+            break;
+          case '8':
+            taskrating = icons['4']
+            break;
+          case '9':
+            taskrating = icons['4.5']
+            break;
+          case '10':
+            taskrating = icons['5']
+            break;
+        }
+
+            var ratingIcon = document.createElement("img");
+            ratingIcon.src = taskrating;
+            ratingIcon.id = "dbRating";
+            item.appendChild(ratingIcon);
+
 
         //now let's add our little genre sticker icons!
   var genreIcon = document.createElement("img");
@@ -245,6 +282,7 @@ function displayTasks() {
   genreIcon2.src = taskImage2;
   item.appendChild(genreIcon2);
   }
+
 
 
         // Setup delete button DOM elements

@@ -93,10 +93,14 @@ html {
           }
 
           #film img{
-            width:100px;
-            height:100px;
+            width:auto;
+            height:auto;
             position:relative;
             top:62px;
+            margin-right:-50px;
+            margin-top:-50px;
+            margin-bottom:-50px;
+            margin-left:-50px;
            }
            
            /* repositioning the first genre sticker */
@@ -273,4 +277,12 @@ html {
        
        .entry-text{
         width:100% !important;
+       }
+
+       #dbRating{
+        float:none;
+        overflow:visible;
+        height:auto !important;
+        width:auto !important;
+        transform: translatey(120px);
        }
