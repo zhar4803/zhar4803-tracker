@@ -142,8 +142,11 @@ function displayTasks() {
           case 'Science Fiction':
             taskImage = icons['iconscifi']
             break;
-          case 'Thriller':
-            taskImage = icons['icontv']
+          case 'TV Movie':
+            taskImage2 = icons['icontv']
+            break;
+            case 'Thriller':
+            taskImage = icons['iconthriller']
             break;
           case 'War':
             taskImage = icons['iconwar']
@@ -200,8 +203,11 @@ function displayTasks() {
           case 'Science Fiction':
             taskImage2 = icons['iconscifi']
             break;
-          case 'Thriller':
+          case 'TV Movie':
             taskImage2 = icons['icontv']
+            break;
+          case 'Thriller':
+            taskImage2 = icons['iconthriller']
             break;
           case 'War':
             taskImage2 = icons['iconwar']
@@ -233,31 +239,31 @@ function displayTasks() {
         let taskrating = null;
         switch (task.filmRating) {
           case '1':
-            taskrating = icons['.5']
+            taskrating = icons['half']
             break;
           case '2':
             taskrating = icons['1']
             break;
           case '3':
-            taskrating = icons['1.5']
+            taskrating = icons['1half']
             break;
           case '4':
             taskrating = icons['2']
             break;
           case '5':
-            taskrating = icons['2.5']
+            taskrating = icons['2half']
             break;
           case '6':
             taskrating = icons['3']
             break;
           case '7':
-            taskrating = icons['3.5']
+            taskrating = icons['3half']
             break;
           case '8':
             taskrating = icons['4']
             break;
           case '9':
-            taskrating = icons['4.5']
+            taskrating = icons['4half']
             break;
           case '10':
             taskrating = icons['5']
@@ -497,14 +503,14 @@ function openfilmModal(taskId) {
 // function for randomly choosing a bunch of films and adding them for testing purposes
 function randomlyChooseTasks(numberOfTasks) {
   const tasks = [
-    () => addTask("Alvin & the Chipmunks", "Drama", "Drama", "Alan Smithee", "(1939)", "Alvin", "Salo", "1"),
-    () => addTask("Alvin & the Chipmunks 2: The Squeekwel", "Action", "Crime", "Alan Smithee", "(1500bc)", "Alvin", "Salo", "1"),
-    () => addTask("Alvin & the Chipmunks 3: Chipwrecked", "Drama", "Adventure", "Alan Smithee", "(40,000)", "Alvin", "Salo", "1"),
-    () => addTask("Alvin & the Chipmunks 4: Alvin Goes to Hell", "Action", "Adventure", "Alan Smithee", "(40,000)", "Alvin", "Salo", "1"),
-    () => addTask("Alvin & the Chipmunks 5: The Revenge", "Drama", "Adventure", "Alan Smithee", "(40,000)", "Alvin", "Salo", "1"),
-    () => addTask("Alvin & the Chipmunks 6: The Final Alvin", "Action", "Adventure", "Alan Smithee", "(40,000)", "Alvin", "Salo", "1"),
-    () => addTask("Alvin & the Chipmunks 7: A New Beginning", "Drama", "Adventure", "Alan Smithee", "(40,000)", "Alvin", "Salo", "1"),
-    () => addTask("Alvin & the Chipmunks 8: Alvin's Return", "Action", "Adventure", "Alan Smithee", "(40,000)", "Alvin", "Salo", "1"),
+    () => addTask("Alvin & the Chipmunks", "Drama", "Comedy", "Alan Smithee", "(2009)", "Alvin", "Salo", '1'),
+    () => addTask("Alvin & the Chipmunks 2: The Squeekwel", "Action", "Crime", "Alan Smithee", "(2011)", "Alvin", "Salo", '2'),
+    () => addTask("Alvin & the Chipmunks 3: Chipwrecked", "Drama", "Western", "Alan Smithee", "(2013)", "Alvin", "Salo", '3'),
+    () => addTask("Alvin & the Chipmunks 4: Alvin Goes to Hell", "Horror", "Thriller", "Alan Smithee", "(2018)", "Alvin", "Salo", '4'),
+    () => addTask("Alvin & the Chipmunks 5: The Revenge", "War", "Horror", "Alan Smithee", "(2022)", "Alvin", "Salo", '5'),
+    () => addTask("Alvin & the Chipmunks 6: The Final Alvin", "TV Movie", "Adventure", "Alan Smithee", "(2026)", "Alvin", "Salo", '6'),
+    () => addTask("Alvin & the Chipmunks 7: A New Beginning", "TV Movie", "Music", "Alan Smithee", "(2030)", "Alvin", "Salo", '7'),
+    () => addTask("Alvin & the Chipmunks 8: Alvin's Return", "TV Movie", "Horror", "Alan Smithee", "(2033)", "Alvin", "Salo", '8'),
   ];
 
   // Shuffle the tasks array using the Fisher-Yates algorithm
@@ -521,6 +527,6 @@ function randomlyChooseTasks(numberOfTasks) {
   }
 }
 
-// randomlyChooseTasks(5);
+randomlyChooseTasks(1);
 
 displayTasks();
