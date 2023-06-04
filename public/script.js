@@ -223,7 +223,7 @@ function displayTasks() {
         item.className = "film";
         item.id = "film";
         item.setAttribute("data-id", task.id);
-        item.innerHTML = `<p><strong>${task.filmName}</strong><br><em>${task.filmRelease}</em></p>`;
+        item.innerHTML = `<p id ="text"><strong>${task.filmName}</strong><br><em>${task.filmRelease}</em></p>`;
         //make an if statement to select an appropriate image and then have it come up here
         tasklist.appendChild(item);
 
@@ -273,6 +273,7 @@ function displayTasks() {
         //now let's add our little genre sticker icons!
   var genreIcon = document.createElement("img");
   genreIcon.src = taskImage;
+  genreIcon.id = "sticker1";
   item.appendChild(genreIcon);
 
   // since the second genre is optional, let's check that the array isn't empty first
@@ -280,6 +281,7 @@ function displayTasks() {
   var genreIcon2 = document.createElement("img");
   // genreIcon.src = 'https://i.imgur.com/FyHOGba.png';
   genreIcon2.src = taskImage2;
+  genreIcon2.id = "sticker2";
   item.appendChild(genreIcon2);
   }
 

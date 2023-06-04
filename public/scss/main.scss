@@ -83,8 +83,20 @@ html {
         list-style-type: none; 
         padding: 0;
         list-style-position: outside;
+        align-content:flex-start;
         transition: 0.6s;
-       }
+              display: grid; 
+              grid-auto-columns: 1fr; 
+              grid-template-columns: auto auto; 
+              grid-template-rows: auto auto auto; 
+              gap: 0px 0px; 
+              grid-template-areas: 
+                "text text"
+                "sticker1 sticker2"
+                "rating rating"; 
+              justify-content: center; 
+            }
+              
           .film:hover { //simple animations for hovering over a db entry to show interactivity - changing the colour and expanding the drop shadow as if you are taking the film off the 'shelf'
             background: #696969;
             transition: 0.8s;
@@ -96,21 +108,35 @@ html {
             width:auto;
             height:auto;
             position:relative;
-            top:62px;
-            margin-right:-50px;
-            margin-top:-50px;
-            margin-bottom:-50px;
-            margin-left:-50px;
+            // top:62px;
+            // margin-right:-50px;
+            // margin-top:-50px;
+            // margin-bottom:-50px;
+            // margin-left:-50px;
+            width: 100%;
+            height: 100%;
            }
+
+
            
            /* repositioning the first genre sticker */
-           #film img:nth-child(2){
-            top:58px;
-            right:-48px;
+           #sticker1{
+            display: grid;
+            grid-area: sticker1;
+            translate: 50px 60px;
+
            }
            /* repositioning the second genre sticker */
-           #film img:nth-child(3){
-            top:120px;
+           #sticker2{
+            display: grid;
+            grid-area: sticker2;
+            translate: 10px 90px;
+           }
+
+           #film p{
+            width:auto;
+            height:100%;
+            grid-area: text;
            }
            
 
@@ -257,6 +283,7 @@ html {
        #filmDetails button{
         width:334px;
         height:30px;
+        right:-88px;
        }
 
        #filmGenre {
@@ -284,5 +311,7 @@ html {
         overflow:visible;
         height:auto !important;
         width:auto !important;
-        transform: translatey(120px);
+        transform: translatey(140px);
+        display: grid;
+        grid-area: rating;
        }
