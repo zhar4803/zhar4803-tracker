@@ -434,10 +434,50 @@ function openfilmModal(taskId) {
       entryContent += `<div class ="entry-row"><em class ="entry-label">Original Title:</em><div class ="entry-text"> ${selectedTask.filmOriginalTitle}</div></div>`;
     }
     
-    if (selectedTask.filmRating) {
-      entryContent += `<div class ="entry-row"><em class ="entry-label">Rating:</em><div class ="entry-text"> ${selectedTask.filmRating}</div></div>`;
-    }
+    let taskrating = null;
+        switch (selectedTask.filmRating) {
+          case '1':
+            taskrating = icons['blankhalf']
+            break;
+          case '2':
+            taskrating = icons['blank1']
+            break;
+          case '3':
+            taskrating = icons['blank1half']
+            break;
+          case '4':
+            taskrating = icons['blank2']
+            break;
+          case '5':
+            taskrating = icons['blank2half']
+            break;
+          case '6':
+            taskrating = icons['blank3']
+            break;
+          case '7':
+            taskrating = icons['blank3half']
+            break;
+          case '8':
+            taskrating = icons['blank4']
+            break;
+          case '9':
+            taskrating = icons['blank4half']
+            break;
+          case '10':
+            taskrating = icons['blank5']
+            break;
+            default:
+            break;
+        }
 
+
+    // if (selectedTask.filmRating) {
+    //   entryContent += `<div class ="entry-row"><em class ="entry-label">Rating:</em><div class ="entry-text"> ${selectedTask.filmRating}</div></div>`;
+    // }
+
+    if (selectedTask.filmRating) {
+      entryContent += `<div class ="entry-row"><em class ="entry-label">Rating:</em><div class ="entry-text"> <img src ="${taskrating}.png"></div></div>`;
+    }
 
     // NON FUCKED JS
 
