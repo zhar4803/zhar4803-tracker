@@ -143,7 +143,7 @@ function displayTasks() {
             taskImage = icons['iconscifi']
             break;
           case 'TV Movie':
-            taskImage2 = icons['icontv']
+            taskImage = icons['icontv']
             break;
             case 'Thriller':
             taskImage = icons['iconthriller']
@@ -268,9 +268,14 @@ function displayTasks() {
           case '10':
             taskrating = icons['5']
             break;
+            default:
+            break;
         }
 
-
+        var ratingIcon = document.createElement("img");
+        ratingIcon.src = taskrating;
+        ratingIcon.id = "dbRating";
+        item.appendChild(ratingIcon);
 
         //now let's add our little genre sticker icons!
   var genreIcon = document.createElement("img");
@@ -287,10 +292,7 @@ function displayTasks() {
   item.appendChild(genreIcon2);
   }
 
-  var ratingIcon = document.createElement("img");
-  ratingIcon.src = taskrating;
-  ratingIcon.id = "dbRating";
-  item.appendChild(ratingIcon);
+
 
 
 
@@ -527,6 +529,6 @@ function randomlyChooseTasks(numberOfTasks) {
   }
 }
 
-randomlyChooseTasks(1);
+// randomlyChooseTasks(1);
 
 displayTasks();
