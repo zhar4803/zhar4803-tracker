@@ -264,10 +264,6 @@ function displayTasks() {
             break;
         }
 
-            var ratingIcon = document.createElement("img");
-            ratingIcon.src = taskrating;
-            ratingIcon.id = "dbRating";
-            item.appendChild(ratingIcon);
 
 
         //now let's add our little genre sticker icons!
@@ -284,6 +280,12 @@ function displayTasks() {
   genreIcon2.id = "sticker2";
   item.appendChild(genreIcon2);
   }
+
+  var ratingIcon = document.createElement("img");
+  ratingIcon.src = taskrating;
+  ratingIcon.id = "dbRating";
+  item.appendChild(ratingIcon);
+
 
 
 
