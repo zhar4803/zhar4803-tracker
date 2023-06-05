@@ -406,7 +406,7 @@ function openfilmModal(taskId) {
     //since there is always at least one genre submitted, we will instead check if the second string in the array was left blank and omit the comma if it is
     
     if (selectedTask.filmGenre.length > 0) {
-      entryContent += `<div class ="entry-row"><div class ="entry-label"><em>Genre:</em></div><div class ="entry-text"> ${selectedTask.filmGenre[0]}`;
+      entryContent += `<div class ="entry-row"><div class ="entry-label">Genre:</div><div class ="entry-text"> ${selectedTask.filmGenre[0]}`;
       
       if (selectedTask.filmGenre[1] !== "") {
         entryContent += `, ${selectedTask.filmGenre[1]}`;
@@ -416,22 +416,22 @@ function openfilmModal(taskId) {
     }
     
     if (selectedTask.filmRelease) {
-      entryContent += `<div class ="entry-row"><em class ="entry-label">Release Date:</em><div class ="entry-text"> ${selectedTask.filmRelease}</div></div>`;
+      entryContent += `<div class ="entry-row"><div class ="entry-label">Release Date:</div><div class ="entry-text"> ${selectedTask.filmRelease}</div></div>`;
     }
     
     if (selectedTask.filmDirector) {
-      entryContent += `<div class ="entry-row"><em class ="entry-label">Director:</em><div class ="entry-text"> ${selectedTask.filmDirector}</div></div>`;
+      entryContent += `<div class ="entry-row"><div class ="entry-label">Director:</div><div class ="entry-text"> ${selectedTask.filmDirector}</div></div>`;
     }
     
     //since the filmCast is supposed to be an entry with three arrays, we will instead check if the filmCast array only has a blank string as an entry
     if (selectedTask.filmCast[0] !== "") {
       //slicing the 'cast' array to omit entries past the third, for cleanliness
       const cast = selectedTask.filmCast.slice(0, 3).join(", ");
-      entryContent += `<div class ="entry-row"><em class ="entry-label">Cast:</em><div class ="entry-text"> ${cast}</div></div>`;
+      entryContent += `<div class ="entry-row"><div class ="entry-label">Cast:</div><div class ="entry-text"> ${cast}</div></div>`;
     }
     
     if (selectedTask.filmOriginalTitle) {
-      entryContent += `<div class ="entry-row"><em class ="entry-label">Original Title:</em><div class ="entry-text"> ${selectedTask.filmOriginalTitle}</div></div>`;
+      entryContent += `<div class ="entry-row"><div class ="entry-label">Original Title:</div><div class ="entry-text"> ${selectedTask.filmOriginalTitle}</div></div>`;
     }
     
     let taskrating = null;
