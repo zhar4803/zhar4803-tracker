@@ -400,7 +400,7 @@ function openfilmModal(taskId) {
     // EXPERIMENTAL POTENTIALLY FUCKED CONTENT
 
     // Constructing a string which will then be fed into the innerhtml at the end
-    let entryContent = `<div class ="entry-row"><div class ="entry-label"><em>Title:</em></div><div class ="entry-text">${selectedTask.filmName}</div></div>`;
+    let entryContent = `<div class ="entry-row"><div class ="entry-label"><em>Title:</em></div><div class ="entry-text"><strong>${selectedTask.filmName}</strong></div></div>`;
 
     //each form element is checked with an if statement so it can be omitted if it wasn't submitted
     //since there is always at least one genre submitted, we will instead check if the second string in the array was left blank and omit the comma if it is

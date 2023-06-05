@@ -330,6 +330,14 @@ html {
        }
 
       //  https://codepen.io/anefzaoui/pen/NWPZzMa
+      
+// I spent a day fiddling with different solutions for the star ratings pattern I wanted for my forms and ended up going with this bit of code I found online, which is very lightweight
+// and simple, using just some clever CSS - the buttons are put in reverse order and then rearranged into the correct by the use of the float attribute, then each star is given an image by the use of the 
+// :before attribute, with half stars identified as such so they can get a different one. then its just a matter of using some clever selectors so that selecting or highlighting a rating highlights everything  
+// below. This is pretty much exactly what I wanted, but it annoyingly relies on this 'font-awesome' family for the icons instead of my own custom images. I tried swapping them around but it just broke
+// everything and I've run out of time to figure out how to do it properly. The easiest solution might be to just make my own font but I have no idea how to do that with my current skillset.
+
+//  Anyway. This is the code I adapted! - > https://codepen.io/anefzaoui/pen/NWPZzMa
 
        @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
@@ -343,6 +351,7 @@ html {
   letter-spacing:20px;
   padding-left:35px;
   color: #a0a0a0;
+  // background-image:url('../images/icons/blankstars.png');
   // content: url('../images/icons/blankblank.png');
 }
 /* Hide radio */
@@ -362,13 +371,13 @@ html {
   cursor: pointer;
   font-family: FontAwesome;
   content: "\f005 "; /* full star */
-  // content: url('../images/icons/blankblank.png');
+  // background-image: url('../images/icons/blankblank.png');
 }
 
 /* Half star trick */
 .rate .half:before {
   content: "\f089 "; /* half star no outline */
-  // content: url('../images/icons/blankblankhalf.png');
+  // background-image: url('../images/icons/blankblankhalf.png');
   position: absolute;
   padding-right: 0;
 }
