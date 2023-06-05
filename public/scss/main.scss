@@ -223,6 +223,23 @@ html {
       
      }
 
+     #taskform select{
+      height:30px;
+      text-align:center;
+     }
+
+     #filmGenre{
+      width:166px!important;
+     }
+
+     #filmGenre2{
+      width:166px!important;
+     }
+
+     #filmRelease{
+      width:334px;
+     }
+
      #filmImage{
       grid-area: filmImage;
       background-color:#d3d3d3;
@@ -345,10 +362,13 @@ html {
 // I spent a day fiddling with different solutions for the star ratings pattern I wanted for my forms and ended up going with this bit of code I found online, which is very lightweight
 // and simple, using just some clever CSS - the buttons are put in reverse order and then rearranged into the correct by the use of the float attribute, then each star is given an image by the use of the 
 // :before attribute, with half stars identified as such so they can get a different one. then its just a matter of using some clever selectors so that selecting or highlighting a rating highlights everything  
-// below. Once I figured out how to make my own webfont to get my icons in everything fell into place, except for two annoying issues: I haven't been able to figure out how to make the stars show up as a
-// blank outline state before being selected or highlighted, and for some reason the space to select a full instead of half star is incredibly tiny. I've been unable to solve either problem but I was able to alleviate the first by just
-// removing the outlines entirely from the version that appears in the database entries, so it at least matches.
-// I'm assuming both problems are something to do with all those selectors at the bottom but I'm frankly pretty bad at CSS and I've run out of time and I don't want to mess with it. Still looks pretty great, though!
+// below. Once I figured out how to make my own webfont to get my icons in everything fell into place, except for two annoying issues: for some reason the space to select a full instead of half star is 
+// incredibly tiny, and I haven't been able to figure out how to make the stars show up as a blank outline state before being selected or highlighted. 
+
+// I've managed to alleviate the first problem a little by tweaking the paddings from my example, but it's still way too sensitive.
+// For the second problem, I chose to just removing the outlines entirely from the version that appears in the database entries, so it at least matches.
+// Solving it completely probably has something to do with all those selectors at the bottom but I'm frankly pretty bad at CSS, it looks fine now and I've run out of time and 
+// don't want to mess with it. 
 
 //  Anyway. This is the code I adapted! - > https://codepen.io/anefzaoui/pen/NWPZzMa
 
@@ -360,7 +380,7 @@ html {
   justify-content:center;
   align-items:center;
   // letter-spacing:1px;
-  padding-left:35px;
+  // padding-left:35px;
   color: #a0a0a0;
   // background-image:url('../images/icons/blankstars.png');
   // content: url('../images/icons/blankblank.png');
@@ -377,7 +397,7 @@ html {
 .rate > label:before {
   display: inline-block;
   font-size: 44px;
-  padding: .4rem .2rem;
+  padding: .3rem 6px;
   margin: 0;
   cursor: pointer;
   font-family: icomoon;
