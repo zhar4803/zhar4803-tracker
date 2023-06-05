@@ -328,3 +328,64 @@ html {
         display: grid;
         grid-area: rating;
        }
+
+      //  https://codepen.io/anefzaoui/pen/NWPZzMa
+
+       @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+
+     /* Ratings widget */
+.rate {
+  display: inline-block;
+  border: 0;
+  justify-content:center;
+  align-items:center;
+  letter-spacing:20px;
+  padding-left:35px;
+  color: #a0a0a0;
+  // content: url('../images/icons/blankblank.png');
+}
+/* Hide radio */
+.rate > input {
+  display: none;
+}
+/* Order correctly by floating highest to the right */
+.rate > label {
+  float: right;
+}
+/* The star of the show */
+.rate > label:before {
+  display: inline-block;
+  font-size: 2rem;
+  padding: .3rem .2rem;
+  margin: 0;
+  cursor: pointer;
+  font-family: FontAwesome;
+  content: "\f005 "; /* full star */
+  // content: url('../images/icons/blankblank.png');
+}
+
+/* Half star trick */
+.rate .half:before {
+  content: "\f089 "; /* half star no outline */
+  // content: url('../images/icons/blankblankhalf.png');
+  position: absolute;
+  padding-right: 0;
+}
+/* Click + hover color */
+input:checked ~ label, /* color current and previous stars on checked */
+label:hover, label:hover ~ label { color: #ffffff;
+  // filter: grayscale(1);
+  // content: url('../images/icons/blankblankfull.png');  
+} /* color previous stars on hover */
+
+/* Hover highlights */
+input:checked + label:hover, input:checked ~ label:hover, /* highlight current and previous stars */
+input:checked ~ label:hover ~ label, /* highlight previous selected stars for new rating */
+label:hover ~ input:checked ~ label /* highlight previous selected stars */ {
+  // content: url('../images/icons/blankblankfull.png'); 
+   color: #ffffff;
+  //  filter: grayscale(1);
+    } 
+
+

@@ -571,4 +571,5 @@ function randomlyChooseTasks(numberOfTasks) {
 
 // randomlyChooseTasks(1);
 
+
 displayTasks();
