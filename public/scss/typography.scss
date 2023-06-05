@@ -23,7 +23,16 @@ font-style: normal;
             font-size: 16pt;
      }
 
-    #submitButton{
+     
+     #filmName {
+        font-family: "owners", sans-serif;
+        font-weight: 550;
+        font-style: italic;
+        font-size: 24px;
+        color: white;
+     }
+
+    #submitButton input{
     font-family: "owners", sans-serif;
     font-weight: 550;
     font-style: italic;
@@ -31,6 +40,20 @@ font-style: normal;
 
    #required{
     font-size:20px;
+   }
+
+   #closeFormButton{
+    font-size:24px;
+    font-family: "owners", sans-serif;
+    font-weight: 550;
+    font-style: normal;
+   }
+
+   #closeEntryButton{
+    font-size:24px;
+    font-family: "owners", sans-serif;
+    font-weight: 550;
+    font-style: normal;
    }
 
 #filmModal {
