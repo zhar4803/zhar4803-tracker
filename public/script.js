@@ -10,6 +10,10 @@ const closeForm = document.getElementById("closeFormButton");
 const filmModal = document.getElementById("filmModal");
 const closeEntry = document.getElementById("closeEntryButton");
 
+// grabbing a variable so the submit button can be recoloured.
+const submitButton = document.getElementById('submitButton');
+
+
 
 import icons from './images/icons/*.png';
 
@@ -84,6 +88,18 @@ form.addEventListener("submit", function (event) {
     )
     modal.close();
 })
+
+// checking to see if the required fields have been filled out by looking to see if the strings are blank - if they arent, the submit button changes colour to show it can be used!
+form.addEventListener('input', function () {
+  const inputs = form.querySelectorAll('input[required]');
+  const isFormValid = Array.from(inputs).every(input => input.value.trim() !== '');
+
+  if (isFormValid) {
+    submitButton.classList.add('valid');
+  } else {
+    submitButton.classList.remove('valid');
+  }
+});
 
 function displayTasks() {
 

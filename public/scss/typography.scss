@@ -38,6 +38,13 @@ font-style: normal;
     font-style: italic;
     }
 
+
+    #filmDetails button{
+      font-family: "owners", sans-serif;
+      font-weight: 550;
+      font-style: italic;
+     }
+
    #required{
     font-size:20px;
    }
@@ -47,6 +54,12 @@ font-style: normal;
     font-family: "owners", sans-serif;
     font-weight: 550;
     font-style: normal;
+    // color: #f0f0f0;
+    color: #ffffff;
+   }
+
+   #closeFormButton:hover{
+    color: #a0a0a0;
    }
 
    #closeEntryButton{
@@ -54,6 +67,12 @@ font-style: normal;
     font-family: "owners", sans-serif;
     font-weight: 550;
     font-style: normal;
+    // color: #f0f0f0;
+    color: #ffffff;
+   }
+
+   #closeEntryButton:hover{
+    color: #a0a0a0;
    }
 
 #filmModal {
