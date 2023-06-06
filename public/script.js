@@ -47,6 +47,7 @@ modal.addEventListener("click", e => {
     e.clientY > dialogDimensions.bottom
   ) {
     modal.close()
+    submitButton.classList.remove('valid');
     document.getElementById("taskform").reset();
   }
 })
@@ -69,6 +70,7 @@ filmModal.addEventListener("click", e => {
     e.clientY > dialogDimensions.bottom
   ) {
     filmModal.close()
+
     document.getElementById("taskform").reset();
   }
 })
@@ -89,10 +91,19 @@ form.addEventListener("submit", function (event) {
     modal.close();
 })
 
-// checking to see if the required fields have been filled out by looking to see if the strings are blank - if they arent, the submit button changes colour to show it can be used!
+// checking to see if the required fields have been filled out by looking to see if the strings are blank, or if nothing has been put into the required genre dropdown - if they arent, the submit button changes colour to show it can be used!
 form.addEventListener('input', function () {
-  const inputs = form.querySelectorAll('input[required]');
-  const isFormValid = Array.from(inputs).every(input => input.value.trim() !== '');
+  const inputs = form.querySelectorAll('input[required], select[required]');
+  const isFormValid = Array.from(inputs).every(input => {
+    if (input.type === 'radio') {
+      const filmRating = form.querySelectorAll(`input[name="${input.name}"]:checked`);
+      return filmRating.length > 0;
+    }
+    if (input.tagName === 'SELECT') {
+      return input.value !== '';
+    }
+    return input.value.trim() !== '';
+  });
 
   if (isFormValid) {
     submitButton.classList.add('valid');
