@@ -62,13 +62,7 @@ html {
     color: white;
        }
 
-      //  .tasklist {
-      //   padding: 0px 0px 0px 0px;
-      //   margin:  0px 0px 0px 0px;
-      //   display: grid;
-      //   grid-template-columns: auto auto auto auto auto;
-      //   justify-content: center;
-      //  }
+
 
        .film {
         width: 210px;
@@ -564,8 +558,14 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ {
   flex-wrap:nowrap;
   height:800px !important;
   overflow:hidden;
-  width:680px;
+  width:536px;
   padding-top:0px;
+  display:grid;
+  grid-template-rows:auto auto;
+  grid-template-areas: 
+  ".closeEntryButton."
+  "...";
+  // only way I could think of to get that button to show up in the right spot.
  }
  
 
@@ -578,7 +578,7 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ {
   flex-wrap:nowrap;
   height:800px !important;
   overflow:hidden;
-  width:680px;
+  width:536px;
   padding-top:0px;
  }
  
@@ -602,7 +602,8 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ {
 //  the vertical shift moves all the labels to dead centre, so here I just nudge it all back off to the side where it looks nice
  #taskform label{
   text-align:right;
-  transform: translatex(-256px);
+  transform: translatex(-192px);
+
  }
 
   /* Select */
@@ -610,10 +611,20 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ {
     width:329px !important;
    }
  
+ /* Required */
+ #required{
+  transform: translatex(-69px) translatey(-52px);
+ }
+
+ /* Close form button */
+ #closeFormButton{
+  transform:translatex(409px) translatey(-726px);
+ }
+
  /* Film image */
 //  Alright, this translating is pretty hacky. But it looks fine? I dunno
  #filmImage{
-  transform:translatex(200px) translatey(78px);
+  transform: translatex(126px) translatey(72px);
   width:91px;
   height:136px;
  }
@@ -640,7 +651,7 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ {
  /* Rate */
 //  I think because the star rating widget uses the labels it gets nudged over by that first translation to move the labels off centre, so here I just manually move it back. 
  #taskform .rate{
-  transform: translatex(256px);
+  transform: translatex(192px);
  }
 
  /* Submit button */
@@ -656,6 +667,7 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ {
     /* Film details */
  #filmDetails{
   flex-direction:column;
+  transform: translatex(70px) translatey(101px);
  }
  
  /* Entry row */
@@ -665,7 +677,7 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ {
  
  /* Entry label */
  #filmDetails .entry-label{
-  transform: translatex(-256px);
+  transform: translatex(-196px);
  }
  
  /* Entry text */
@@ -677,7 +689,8 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ {
  #filmImage2{
   width:91px;
   height:136px;
-  transform:translatex(195px) translatey(98px);
+  visibility: hidden;
+  // could not get this thing to show up in the right spot and it's just a placeholder anyway. Hiding it for now!
  }
  
  /* Button */
@@ -688,6 +701,13 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ {
  /* Entry text */
   .entry-text{
   width:75% !important;
+ }
+
+ #closeEntryButton{
+  // position:relative;
+  transform: translatex(-25px) translatey(-512px);
+  top:120px;
+  grid-area: closeEntryButton;
  }
 
 
