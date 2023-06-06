@@ -503,3 +503,139 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ {
     } 
 
 
+// alright! time for the mobile layouts! lets go. I've chosen 768 pixels for my width as it will allow me to rearrange elements with a minimum of resizing
+
+@media (max-width:768px){
+
+
+  // restyling the main page is very simple - just a matter of reducing the number of films shown in each row to three instead of five and making the gap smaller
+  /* Tasklist */
+  #tasklist{
+   grid-template-columns:1fr 1fr 1fr;
+   column-gap:9px;
+   justify-content:flex-start;
+  }
+  
+  /* Body */
+  body{
+    width:100vw !important;
+    overflow:hidden;
+  }
+  
+  /* Maincontent */
+  .container .Maincontent{
+    width:100vw !important;
+   margin-bottom:7px;
+  }
+  
+  /* Container */
+  .container{
+   grid-template-columns:0px 1fr 0px !important;
+   width:100vw !important;
+   overflow:hidden;
+  }
+
+   /* Film log */
+ .container .FilmLog{
+  width:100vw;
+ }
+ 
+  /* Navbar */
+  .container .Navbar{
+    width:100vw;
+   }
+
+ /* Film modal */
+ #filmModal{
+  width:100vw;
+  flex-direction:column;
+  float:none;
+  flex-wrap:nowrap;
+  height:auto !important;
+ }
+ 
+
+//  now let's start styling the form! I found all this to be pretty simple since luckily just changing the flex direction to vertical gets me those lovely nested labels for each input field that I wanted.
+// From there its just a matter of making everything the right width
+ /* Form modal */
+ #formModal{
+  flex-direction:column;
+  float:none;
+  flex-wrap:nowrap;
+  height:800px !important;
+  overflow:hidden;
+  width:680px;
+ }
+ 
+
+
+ /* Taskform */
+ #taskform{
+  display:block;
+  justify-content:center;
+  flex:0 1 auto;
+  align-self:center;
+ }
+ 
+ /* Form row */
+ #taskform .form-row{
+  flex-direction:column;
+  text-align:left;
+ }
+ 
+ /* Label */
+//  the vertical shift moves all the labels to dead centre, so here I just nudge it all back off to the side where it looks nice
+ #taskform label{
+  text-align:right;
+  transform: translatex(-256px);
+ }
+
+  /* Select */
+  #taskform select{
+    width:329px !important;
+   }
+ 
+ /* Film image */
+//  Alright, this translating is pretty hacky. But it looks fine? I dunno
+ #filmImage{
+  transform:translatex(200px) translatey(78px);
+  width:91px;
+  height:136px;
+ }
+
+  /* Film genre */
+  #filmGenre{
+    width:329px !important;
+   }
+
+    /* Film cast */
+ #filmCast{
+  width:320px;
+ }
+ 
+ #filmDirector{
+  width:320px;
+ }
+
+ /* Film original title */
+ #filmOriginalTitle{
+  width:320px;
+ }
+ 
+ /* Rate */
+//  I think because the star rating widget uses the labels it gets nudged over by that first translation to move the labels off centre, so here I just manually move it back. 
+ #taskform .rate{
+  transform: translatex(256px);
+ }
+
+ /* Submit button */
+ #submitButton{
+  transform: translatex(-72px);
+ }
+
+  /* Input */
+  #submitButton input{
+    width:320px;
+   }
+  
+ }
