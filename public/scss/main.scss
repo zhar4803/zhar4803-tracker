@@ -260,6 +260,18 @@ html {
       margin-right:30px;
       
      }
+
+     #filmImage2{
+      grid-area: filmImage;
+      background-color:#d3d3d3;
+      width:316px;
+      height:468px;
+      // position:static;
+      // margin-left:28px;
+      align-self:center;
+      margin-right:30px;
+      
+     }
     
      #closeFormButton {
       justify-content:center;
@@ -519,7 +531,7 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ {
   /* Body */
   body{
     width:100vw !important;
-    overflow:hidden;
+    // overflow:hidden;
   }
   
   /* Maincontent */
@@ -531,8 +543,8 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ {
   /* Container */
   .container{
    grid-template-columns:0px 1fr 0px !important;
-   width:100vw !important;
-   overflow:hidden;
+  //  width:100vw !important;
+  //  overflow:hidden;
   }
 
    /* Film log */
@@ -547,11 +559,13 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ {
 
  /* Film modal */
  #filmModal{
-  width:100vw;
   flex-direction:column;
   float:none;
   flex-wrap:nowrap;
-  height:auto !important;
+  height:800px !important;
+  overflow:hidden;
+  width:680px;
+  padding-top:0px;
  }
  
 
@@ -565,6 +579,7 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ {
   height:800px !important;
   overflow:hidden;
   width:680px;
+  padding-top:0px;
  }
  
 
@@ -638,4 +653,42 @@ label:hover ~ input:checked ~ label /* highlight previous selected stars */ {
     width:320px;
    }
   
+    /* Film details */
+ #filmDetails{
+  flex-direction:column;
+ }
+ 
+ /* Entry row */
+ #filmDetails .entry-row{
+  flex-direction:column;
+ }
+ 
+ /* Entry label */
+ #filmDetails .entry-label{
+  transform: translatex(-256px);
+ }
+ 
+ /* Entry text */
+ #filmDetails .entry-text{
+  transform: translatex(23px);
+ }
+ 
+ /* Film image */
+ #filmImage2{
+  width:91px;
+  height:136px;
+  transform:translatex(195px) translatey(98px);
+ }
+ 
+ /* Button */
+ #filmDetails button{
+  transform: translatex(-52px);
+ }
+ 
+ /* Entry text */
+  .entry-text{
+  width:75% !important;
+ }
+
+
  }
