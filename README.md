@@ -54,3 +54,5 @@ This modal also did not require any substantial iterations beyond the implementa
 ## COMPATIBILITY
 
 This should all just run from the basic setup introduced in the tutorial, with the exception of a bit of extra stuff needing to be done to parcel to follow the 'Importing Images in JS with Parcel' suggested pattern from week 13 (https://piazza.com/class/ldrz9ne3wpj4eb/post/76). I think I just had to run the install parcel command a second time and add "@parcel/transformer-sass": "^2.8.3", to  "devDependencies" in package.json.
+
+The desktop layout is designed for 1920x1080 and the mobile layout is designed for widths of 768 pixels and smaller.
